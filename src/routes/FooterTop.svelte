@@ -1,6 +1,4 @@
 <script lang="ts">
-  // import Logo from "/src/assets/images/logo-white.svg";
-
   const beginningYear = 2023;
   const currentYear = new Date().getFullYear();
   const copyrightYears = beginningYear === currentYear ? currentYear : `${beginningYear} - ${currentYear}`;
@@ -8,11 +6,10 @@
 
 <footer class="fp-container">
   <div class="footer-top">
-    <div class="logo-wrapper">
-      <!-- <a href="/"><img src={Logo} class="logo" alt="logo" /></a> -->
-    </div>
     <div class="copyright-wrapper">
       &#169; {copyrightYears} Samuel Earl
+    </div>
+    <div class="nav-wrapper">
     </div>
   </div>
 </footer>
@@ -28,12 +25,8 @@
         padding-top: 40px;
         padding-bottom: 40px;
 
-        & .logo-wrapper {
+        & .nav-wrapper {
           margin-bottom: 20px;
-        
-          & .logo {
-            height: 40px;
-          }
         }
       }
     }
@@ -47,7 +40,7 @@
         justify-content: space-between;
         align-items: center;
 
-        & .logo-wrapper {
+        & .nav-wrapper {
           margin-bottom: 0;
         }
       }

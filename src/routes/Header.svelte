@@ -3,8 +3,7 @@
   import Icon from "@iconify/svelte";
   import { Button } from "@fanny-pack-ui/svelte-kit";
   import MainNav from "./MainNav.svelte";
-  // import Logo from "/src/assets/images/logo-purple-taupe-dark.svg";
-  // import Logo from "/src/assets/images/logo-white.svg";
+  import Photo from "/src/assets/images/profile-photo-gray-scale-round-200x200.png";
 
   let showMobileMainNav = false;
 
@@ -41,8 +40,13 @@
       </Button>
     {/if}
   </div>
-  <div class="logo-wrapper">
-    <!-- <a href="/"><img src={Logo} class="logo" alt="logo" /></a> -->
+  <div class="photo-wrapper">
+    <a href="/" class="home-link">
+      <img src={Photo} class="photo" alt="profile" />
+      <span class="name">
+        <span class="first">Samuel</span>
+        <span class="last">Earl</span>
+    </a>
   </div>
   <div class="main-nav-and-login-wrapper">
     <div class="main-nav-wrapper-lg-screen">
@@ -72,8 +76,28 @@
       padding-top: 10px;
       padding-bottom: 10px;
 
-      & .logo {
-        height: 40px;
+      & .home-link {
+        display: flex;
+        align-items: center;
+        border-bottom: none;
+
+        & .photo {
+          height: 40px;
+        }
+
+        & .name {
+          margin-left: 10px;
+          color: var(--white);
+
+          & .first {
+            font-weight: 900;
+            margin-right: -4px;
+          }
+
+          & .last {
+            font-weight: 100;
+          }
+        }
       }
 
       & .main-nav-and-login-wrapper {
