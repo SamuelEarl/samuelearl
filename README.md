@@ -1,2 +1,3 @@
-# My personal programming notebook
+# My Portfolio Site
+
 Go to https://samuelearl.pages.dev/
