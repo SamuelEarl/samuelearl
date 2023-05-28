@@ -3,7 +3,7 @@
   import Icon from "@iconify/svelte";
   import { Button } from "@fanny-pack-ui/svelte-kit";
   import MainNav from "./MainNav.svelte";
-  import Photo from "/src/assets/images/profile-photo-gray-scale-round-200x200.png";
+  // import Photo from "/src/assets/images/profile-photo-gray-scale-round-200x200.png";
 
   let showMobileMainNav = false;
 
@@ -42,7 +42,7 @@
   </div>
   <div class="photo-wrapper">
     <a href="/" class="home-link">
-      <img src={Photo} class="photo" alt="profile" />
+      <!-- <img src={Photo} class="photo" alt="profile" /> -->
       <span class="name">
         <span class="first">Samuel</span>
         <span class="last">Earl</span>
@@ -86,7 +86,7 @@
         }
 
         & .name {
-          margin-left: 10px;
+          /* margin-left: 10px; */
           color: var(--white);
 
           & .first {
