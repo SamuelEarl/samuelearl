@@ -39,6 +39,7 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        color: var(--text-color-default);
 
         & .nav-wrapper {
           margin-bottom: 0;

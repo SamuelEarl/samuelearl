@@ -17,7 +17,7 @@
     </div>
     <div class="business">
       <h1>business</h1>
-      <p>Studied business in college and understand the process for launching new products that will be successful (hint: Steve Blank teaches the process).</p>
+      <p>Studied business in college and understand the process for launching new products that will be successful<br> (hint: Steve Blank teaches the process).</p>
     </div>
     <div class="ux-design">
       <h1>ux design</h1>

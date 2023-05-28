@@ -6,6 +6,10 @@
 	import "/src/assets/styles/main.css";
 </script>
 
+<svelte:head>
+	<title>Samuel Earl - Senior Full-Stack Software Developer</title>
+</svelte:head>
+
 <div class="layout">
 	<div class="header-wrapper">
 		<Header />
@@ -43,7 +47,8 @@
       }
 
       & .footer-top-wrapper {
-        background-color: var(--secondary-color);
+        box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+        background-color: var(--neutral-200);
       }
 
       & .footer-bottom-wrapper {
