@@ -24,6 +24,7 @@
         flex-direction: column;
         padding-top: 40px;
         padding-bottom: 40px;
+        color: var(--text-color-default);
 
         & .nav-wrapper {
           margin-bottom: 20px;
@@ -39,7 +40,6 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        color: var(--text-color-default);
 
         & .nav-wrapper {
           margin-bottom: 0;

@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { getContext } from "svelte";
-  import { goto, beforeNavigate } from "$app/navigation";
   import { fly } from "svelte/transition";
   import Icon from "@iconify/svelte";
   
@@ -19,25 +17,20 @@
       label: "open source projects",
       url: "/open-source-projects",
     },
+    // {
+    //   label: "blog",
+    //   url: "/blog",
+    // },
     {
       label: "contact",
       url: "/contact",
     },
+    // TODO: Instead of displaying code samples or code challenges, like from Ad Hoc LLC, I will just blog about those topics and show my code in my blogs.
     // {
     //   label: "code samples",
     //   url: "/code-samples",
     // },
   ];
-
-  // let backBtnText = "";
-  // let displayedNav = mainNav;
-  // let dropdownNav = null;
-
-  // // Clear the dropdownNav when a user navigates so the subnav
-  // // is not still displaying after a user has clicked a link.
-  // beforeNavigate(async (params) => {
-  //   dropdownNav = null;
-  // });
 </script>
 
 <!-- 
@@ -48,29 +41,14 @@
   <nav class="mobile-nav" transition:fly|local>
     <ul class="mobile-nav-menu">
       <!-- Display the mainNav. -->
-      <!-- {#if displayedNav === mainNav} -->
-        {#each mainNav as item}
-          <li class="main-nav-item">
-            <a class="main-nav-link" href={item.url}>
-              <span class="main-nav-link-label">{item.label}</span>
-              <span class="main-nav-link-chevron"><Icon icon="mdi:chevron-right" width="24" /></span>
-            </a>
-          </li>
-        {/each}
-      <!-- Display a subnav. -->
-      <!-- {:else}
-        Add a "Back" button to the top of the subnav.
-        <li class="nav-item subnav-item go-back-wrapper" on:click={() => displayedNav = mainNav}>
-          <span class="back-chevron"><Icon icon="mdi:chevron-left" width="24" /></span>
-          <span>{backBtnText}</span>
+      {#each mainNav as item}
+        <li class="main-nav-item">
+          <a class="main-nav-link" href={item.url}>
+            <span class="main-nav-link-label">{item.label}</span>
+            <span class="main-nav-link-chevron"><Icon icon="mdi:chevron-right" width="24" /></span>
+          </a>
         </li>
-        Loop through the subnav and display each item.
-        {#each displayedNav as item}
-          <li class="nav-item subnav-item">
-            <a class="subnav-link" href={item.url}>{item.label}</a>
-          </li>
-        {/each}
-      {/if} -->
+      {/each}
     </ul>
   </nav>
 <!-- {:else} -->
@@ -80,16 +58,6 @@
         {#each mainNav as item}
           <li class="main-nav-item">
             <a class="main-nav-link" href={item.url}>{item.label}</a>
-            <!-- {item.mainNavItemHeading}
-            {#if dropdownNav && dropdownNav === item.subNav}
-              <ul class="dropdown-menu">
-                {#each dropdownNav as item}
-                  <li class="dropdown-item">
-                    <a class="dropdown-link" href={item.url}>{item.label}</a>
-                  </li>
-                {/each}
-              </ul>
-            {/if} -->
           </li>
         {/each}
       </ul>
@@ -122,52 +90,27 @@
         background-color: var(--white);
         overflow-y: auto;
         border-bottom: var(--border-secondary);
-        border-bottom-width: 3px;
+        border-bottom-width: 3px;          
 
-        /* & li.nav-item { */
-          
+        & li.main-nav-item {            
+          border-bottom: var(--border-default);
+          margin: 0 10px;
+          font-weight: bold;
+          cursor: pointer;
 
-          & li.main-nav-item {            
-            border-bottom: var(--border-default);
-            margin: 0 10px;
-            font-weight: bold;
-            cursor: pointer;
+          & .main-nav-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: none;
+            padding: 15px 5px;
+            color: var(--text-color-default);
 
-            & .main-nav-link {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              border: none;
-              padding: 15px 5px;
-              color: var(--text-color-default);
-
-              & .main-nav-link-chevron {
-                color: var(--primary-color);
-              }
+            & .main-nav-link-chevron {
+              color: var(--primary-color);
             }
           }
-
-          /* &.subnav-item {
-
-            &.go-back-wrapper {
-              justify-content: flex-start;
-              padding: 15px 5px 25px 5px;
-              color: var(--primary-color);
-
-              & .back-chevron {
-                margin-right: 5px;
-              }
-            }
-
-            & a.subnav-link {
-              display: block;
-              width: 100%;
-              border: none;
-              padding: 15px 5px;
-              color: var(--text-color-default);
-            }
-          } */
-        /* } */
+        }
       }
     }
   }
@@ -211,37 +154,6 @@
               padding-right: 0;
             }
           }
-
-          /* & ul.dropdown-menu {
-            position: absolute;
-            top: 40px;
-            left: 10px;
-            width: 350px;
-            display: flex;
-            flex-direction: column;
-            margin: 0;
-            list-style: none;
-            border: var(--border-default);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow-depth);
-            background-color: var(--white);
-
-            & li.dropdown-item {
-              margin-bottom: 0;
-
-              & a.dropdown-link {
-                display: block;
-                width: 100%;
-                border: none;
-                padding: 10px;
-                color: var(--text-color-default);
-                
-                &:hover {
-                  background-color: var(--bg-color-hover);
-                }
-              }
-            }
-          } */
         }
       }
     }

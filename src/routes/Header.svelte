@@ -46,6 +46,7 @@
       <span class="name">
         <span class="first">Samuel</span>
         <span class="last">Earl</span>
+      </span>
     </a>
   </div>
   <div class="main-nav-and-login-wrapper">
@@ -57,9 +58,6 @@
     <div class="spacer">
       <Icon icon="mdi:menu" width=40 color="transparent" />
     </div>
-    <!-- <div class="login-btn-wrapper">
-      <Button padding="sm">Login</Button>
-    </div> -->
   </div>
 </header>
 
@@ -86,7 +84,6 @@
         }
 
         & .name {
-          /* margin-left: 10px; */
           color: var(--white);
 
           & .first {
@@ -95,7 +92,7 @@
           }
 
           & .last {
-            font-weight: 100;
+            font-weight: 300;
           }
         }
       }

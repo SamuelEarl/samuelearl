@@ -27,24 +27,41 @@
 </div>
 
 <style>
-  .wrapper {
-    display: flex;
+  @media (--xs-up) {
+    .wrapper {
+      display: flex;
+      flex-direction: column;
 
-    & .image-wrapper {
-      flex: 1;
-      margin-right: 50px;
-      
-      & img {
-        max-width: 400px;
+      & .image-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 25px;
+        
+        & img {
+          height: 200px;
+        }
       }
     }
+  }
 
-    & .content-wrapper {
-      flex: 1;
+  @media (--lg-up) {
+    .wrapper {
+      flex-direction: row;
 
-      & h1 {
-        font-size: 4rem;
-        font-weight: 900;
+      & .image-wrapper {
+        display: block;
+        flex: 1;
+        margin: 0;
+        margin-right: 50px;
+        
+        & img {
+          height: auto;
+          max-width: 400px;
+        }
+      }
+
+      & .content-wrapper {
+        flex: 1;
       }
     }
   }
