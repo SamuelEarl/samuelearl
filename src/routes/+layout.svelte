@@ -1,28 +1,23 @@
 <script lang="ts">
-  import { setContext } from "svelte";
 	import Header from "./Header.svelte";
-	import FooterTop from "./FooterTop.svelte";
-  import FooterBottom from "./FooterBottom.svelte";
+	import Footer from "./Footer.svelte";
 	import "/src/assets/styles/main.css";
 </script>
 
 <svelte:head>
-	<title>Samuel Earl - Senior Full-Stack Software Developer</title>
+	<title>Samuel Earl - Software Developer | Business Strategy | UX Design</title>
 </svelte:head>
 
 <div class="layout">
 	<div class="header-wrapper">
 		<Header />
 	</div>
-  <main class="fp-container">
+  <main>
     <slot />
   </main>
-	<div class="footer-top-wrapper">
-		<FooterTop />
+	<div class="footer-wrapper">
+		<Footer />
 	</div>
-  <!-- <div class="footer-bottom-wrapper">
-		<FooterBottom />
-	</div> -->
 </div>
 
 <style>
@@ -42,18 +37,13 @@
       & main {
         flex: 1;
         width: 100%;
-        padding-top: 35px;
-        padding-bottom: 50px;
+        /* padding-top: 35px; */
+        /* padding-bottom: 50px; */
       }
 
-      & .footer-top-wrapper {
+      & .footer-wrapper {
         box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
         background-color: var(--neutral-200);
-      }
-
-      & .footer-bottom-wrapper {
-        border-top: 1px solid var(--black);
-        background-color: var(--secondary-color);
       }
     }
   }

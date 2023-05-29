@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Bitmoji from "/src/assets/images/bitmoji.png";
+  import Bitmoji from "/src/assets/images/bitmojis/homepage.png";
 </script>
 
 <div class="wrapper">
@@ -16,8 +16,8 @@
       <p>Senior backend developer with experience in Node.js, Python, SQL &amp; NoSQL databases, serverless, and always learning more.</p>
     </div>
     <div class="business">
-      <h1>business</h1>
-      <p>Studied business in college and understand the process for launching new products that will be successful<br> (hint: Steve Blank teaches this process).</p>
+      <h1>business strategy</h1>
+      <p>Studied business in college and understand <a href="http://www.google.com/search?q=steve+blank+how+to+build+a+startup" target="_blank">the process for successful product launches</a> (as opposed to failed product launches, ouch).</p>
     </div>
     <div class="ux-design">
       <h1>ux design</h1>
