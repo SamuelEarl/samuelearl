@@ -1,6 +1,6 @@
 <script lang="ts">
   import Page from "/src/components/Page.svelte";
-  import Photo from "/src/assets/images/profile-photo-gray-scale-round-200x200.png";
+  import Photo from "/src/assets/images/profile-photos/profile-photo-gray-scale-round-200x200.png";
 </script>
 
 <Page>
