@@ -27,8 +27,8 @@
   <div class="top">
     <div class="left">
       <h1>contact</h1>
-      <!-- <p>Get in touch with me through<br>LinkedIn or send me an email.</p> -->
-      <p>Click the link below and<br>get in touch with me on LinkedIn.</p>
+      <!-- <p>Get in touch with me through LinkedIn or send me an email.</p> -->
+      <p>Click the link below and get in touch with me on LinkedIn.</p>
       <div class="social-wrapper">
         <a href="https://www.linkedin.com/in/samuel-earl/" target="_blank">
           <Icon icon="bi:linkedin" color="#0982c0" width="50" />
@@ -80,7 +80,7 @@
         margin-bottom: 60px;
 
         & p {
-          font-size: 1.75rem;
+          font-size: 1.5rem;
           margin-bottom: 40px;
         }
 

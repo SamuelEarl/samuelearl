@@ -24,7 +24,7 @@
   @media (--xs-up) {
     .page {
       /* view height - header - footer */
-      min-height: calc(100vh - 64px - 104px);
+      min-height: calc(100vh - 70px - 110px);
       display: flex;
       flex-direction: column;
       padding-top: 35px;

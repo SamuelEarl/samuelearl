@@ -22,7 +22,7 @@
     align-items: center;
 
     & .text h1 {
-      font-size: 4.5rem;
+      font-size: 4rem;
     }
   }
 </style>

@@ -11,11 +11,11 @@
     <div class="content-wrapper">
       <div class="frontend">
         <h1>frontend</h1>
-        <p>Senior frontend developer specializing in Svelte, React, D3.js &amp; data visualizations, and whatever you need.</p>
+        <p>Senior frontend developer specializing in Svelte, React, D3.js, and data visualization. Always up for learning new things.</p>
       </div>
       <div class="backend">
         <h1>backend</h1>
-        <p>Senior backend developer with experience in Node.js, Python, SQL &amp; NoSQL databases, serverless, and always learning more.</p>
+        <p>Senior backend developer with experience in Node.js, Python, SQL databases, NoSQL databases, and serverless.</p>
       </div>
       <div class="business">
         <h1>business strategy</h1>
@@ -53,9 +53,9 @@
 
       & .image-wrapper {
         display: block;
-        flex: 1;
+        flex: 3;
         margin: 0;
-        margin-right: 50px;
+        margin-right: 40px;
         
         & img {
           height: auto;
@@ -64,7 +64,7 @@
       }
 
       & .content-wrapper {
-        flex: 1;
+        flex: 4;
       }
     }
   }

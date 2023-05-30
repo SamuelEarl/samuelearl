@@ -17,10 +17,10 @@
       label: "open source projects",
       url: "/open-source-projects",
     },
-    // {
-    //   label: "blog",
-    //   url: "/blog",
-    // },
+    {
+      label: "blog",
+      url: "/blog",
+    },
     {
       label: "contact",
       url: "/contact",

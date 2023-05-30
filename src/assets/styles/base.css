@@ -11,20 +11,20 @@
 
 html, body {
   font-family: var(--sans-serif);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-xl);
   color: var(--text-color-default);
   font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
   font-family: var(--sans-serif);
   font-weight: 900;
 }
 
 h1 {
   /* font-size: var(--font-size-4xl); */
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 h2 {
