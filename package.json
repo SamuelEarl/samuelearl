@@ -37,6 +37,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@fanny-pack-ui/svelte-kit": "^0.0.66"
+		"@fanny-pack-ui/svelte-kit": "^0.0.68"
 	}
 }
