@@ -83,12 +83,9 @@
           height: 250px;
           display: flex;
           align-items: center;
+          border-radius: var(--border-radius) var(--border-radius) 0 0;
           overflow: hidden;
           background-color: var(--neutral-200);
-
-          & .thumbnail {
-            /* box-shadow: -3px 3px 4px 0px rgba(0, 0, 0, 0.4); */
-          }
         }
 
         & .description {
