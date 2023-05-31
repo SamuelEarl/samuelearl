@@ -34,6 +34,7 @@
     .wrapper {
       display: flex;
       flex-direction: column;
+      margin-bottom: 30px;
 
       & .image-wrapper {
         display: flex;

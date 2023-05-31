@@ -69,9 +69,28 @@
 
 <style>
   @media (--xs-up) {
+    .top {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 40px;
+
+      & .left {
+        padding-bottom: 30px;
+      }
+
+      & .right {
+        display: flex;
+        justify-content: center;
+
+        & img {
+          width: 300px;
+        }
+      }
+    }
+
     .portfolio-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 30px;
 
       & .box {
@@ -95,23 +114,24 @@
         }
       }
     }
+  }
 
+  @media (--lg-up) {
     .top {
-      display: flex;
-      padding-bottom: 40px;
+      flex-direction: row;
 
-      & .left, & .right {
+      & .left {
         flex: 1;
+        padding: 0;
       }
 
       & .right {
-        display: flex;
-        justify-content: center;
-
-        & img {
-          width: 300px;
-        }
+        flex: 1;
       }
+    }
+
+    .portfolio-grid {
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 </style>
