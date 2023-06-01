@@ -1,7 +1,7 @@
 <script lang="ts">
   import Page from "/src/components/Page.svelte";
   import Portfolio from "/src/assets/images/bitmojis/portfolio.png";
-  import AutoAdjustingCharts from "/src/assets/images/data-dashboard/auto-adjusting-charts.gif";
+  import InteractiveCharts from "/src/assets/images/data-dashboard/interactive-charts.gif";
   import BudgetAppMobile from "/src/assets/images/personal-finance-app/budget-app-mobile-1.png";
   import SearchForPeople from "/src/assets/images/hr-app/search-for-people.gif";
   import CMS from "/src/assets/images/cms/cms-pages.png";
@@ -9,7 +9,7 @@
 
   const projects = [
     { 
-      src: AutoAdjustingCharts, 
+      src: InteractiveCharts, 
       alt: "real-time data dashboard",
       description: "Real-time Data Dashboard",
       wrapperStyle: "justify-content: flex-end;",

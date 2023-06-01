@@ -43,11 +43,6 @@
         box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
         background-color: var(--neutral-50);
       }
-
-      & .footer-wrapper {
-        box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
-        background-color: var(--neutral-200);
-      }
     }
   }
 </style>

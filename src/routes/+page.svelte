@@ -15,11 +15,11 @@
       </div>
       <div class="backend">
         <h1>backend</h1>
-        <p>Senior backend developer with experience in Node.js, Python, SQL databases, NoSQL databases, and serverless.</p>
+        <p>Senior backend developer with experience in Node.js, Python, SQL databases, NoSQL databases, and serverless functions.</p>
       </div>
       <div class="business">
         <h1>business strategy</h1>
-        <p>Studied business in college and understand <a href="http://www.google.com/search?q=steve+blank+how+to+build+a+startup" target="_blank">the process for successful product launches</a> (as opposed to failed product launches, ouch).</p>
+        <p>Studied business in college and understand <a href="http://www.google.com/search?q=steve+blank+how+to+build+a+startup" target="_blank">the process for successful product launches</a> (as opposed to failed product launches&mdash;ouch).</p>
       </div>
       <div class="ux-design">
         <h1>ux design</h1>

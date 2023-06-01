@@ -37,8 +37,6 @@
       & main {
         flex: 1;
         width: 100%;
-        /* padding-top: 35px; */
-        /* padding-bottom: 50px; */
       }
 
       & .footer-wrapper {

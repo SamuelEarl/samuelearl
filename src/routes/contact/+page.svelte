@@ -106,8 +106,9 @@
     .top {
       display: flex;
 
-      & .left, & .right {
+      & .left {
         flex: 1;
+        margin-right: 50px;
 
         & p {
           margin-bottom: 60px;
@@ -115,6 +116,7 @@
       }
 
       & .right {
+        flex: 1;
         padding-top: 20px;
       }
     }
