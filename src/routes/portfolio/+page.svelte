@@ -106,6 +106,7 @@
         padding: 8px;
         border-radius: var(--border-radius);
         box-shadow: 0 1px 4px 0px rgba(0, 0, 0, 0.3);
+        color: var(--text-color-default);
 
         &:hover {
           box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.3);
