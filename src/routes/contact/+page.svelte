@@ -60,7 +60,7 @@
         <Textarea label="Message" bind:value={message} rows="5" />
       </div>
       <br>
-      <!-- Turnstile is Cloudflare's alternative to CAPTCHA verification. -->
+      TODO: Turnstile is Cloudflare's alternative to CAPTCHA verification.
       <div class="cf-turnstile" data-sitekey="0x4AAAAAAAFXr3Nkrx70YH5C" data-callback="javascriptCallback"></div>
       <br>
       <div>
