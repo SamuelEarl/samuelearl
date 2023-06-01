@@ -50,12 +50,13 @@ h6 {
 }
 
 p {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 ul, ol {
   list-style-position: outside;
-  margin-bottom: 15px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   padding-left: 30px;
 }
 
@@ -84,7 +85,7 @@ a:hover {
 
 br {
   line-height: 0; /* Firefox adds a line-height to <br> tags, so this removes that. */
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 hr {
@@ -97,7 +98,7 @@ hr {
 pre {
   font-family: var(--monospace);
   padding: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   border-radius: var(--border-radius);
   background-color: var(--bg-color-element-default) !important;
 }
@@ -116,6 +117,8 @@ code {
 /* --------------------------------------------------------------------- */
 table {
   width: 100%;
+  margin-top: 40px;
+  margin-bottom: 40px;
   border-collapse: collapse;
 }
 
