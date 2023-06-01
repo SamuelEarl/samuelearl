@@ -2,6 +2,8 @@
 	import Header from "./Header.svelte";
 	import Footer from "./Footer.svelte";
 	import "/src/assets/styles/main.css";
+
+  export const prerender = true;
 </script>
 
 <svelte:head>
