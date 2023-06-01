@@ -2,7 +2,7 @@
 
 I like using Cloudflare in my web projects. This is in large part because they keep their costs down and they also have really great products. Whenever I register new domain names I will register them with Cloudflare, but I might use other web hosting providers, depending on the needs of my app.
 
-I recently transferred a domain name from Namecheap to Cloudflare and I ran into an issue after the transfer was complete. The website that is associated with the domain name that I transferred is hosted on Vercel. That website has a subdomain that I could not access after the domain name was transferred to Cloudflare. When I tried visiting the subdomain in a browser, this was the error that I was shown:
+I recently transferred a domain name from Namecheap to Cloudflare following this tutorial: [How to Transfer a Domain From Namecheap to Cloudflare - Cloudflare Registrar](https://www.youtube.com/watch?v=akeGBHVO2Go). But I ran into an issue after the transfer was complete. The website that is associated with the domain name that I transferred is hosted on Vercel. That website has a subdomain that I could not access after the domain name was transferred to Cloudflare. When I tried visiting the subdomain in a browser, this was the error that I was shown:
 
 <br>
 
