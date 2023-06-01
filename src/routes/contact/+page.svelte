@@ -42,7 +42,7 @@
   </div>
 
   <!-- <div slot="bottom">
-    <h3>send me an email</h3>
+    <h2>send me an email</h2>
     <form>
       <div>
         <Input type="text" bind:value={name} label="Your Name" />

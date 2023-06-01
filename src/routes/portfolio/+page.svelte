@@ -12,6 +12,7 @@
       src: InteractiveCharts, 
       alt: "real-time data dashboard",
       description: "Real-time Data Dashboard",
+      url: "real-time-data-dashboard",
       wrapperStyle: "justify-content: flex-end;",
       imgStyle: "margin-right: -25px; box-shadow: -3px 3px 4px 0px rgba(0, 0, 0, 0.4);",
     },
@@ -19,6 +20,7 @@
       src: BudgetAppMobile, 
       alt: "personal finance app",
       description: "Personal Finance App",
+      url: "personal-finance-app",
       wrapperStyle: "justify-content: center;",
       imgStyle: "height: 100%; margin-bottom: -50px;",
     },
@@ -26,6 +28,7 @@
       src: SearchForPeople, 
       alt: "HR app",
       description: "Human Resources App",
+      url: "",
       wrapperStyle: "justify-content: flex-end;",
       imgStyle: "margin-right: -25px; box-shadow: -3px 3px 4px 0px rgba(0, 0, 0, 0.4);",
     },
@@ -33,6 +36,7 @@
       src: CMS, 
       alt: "content management system",
       description: "Content Management System (CMS)",
+      url: "",
       wrapperStyle: "justify-content: center; padding: 5px;",
       imgStyle: "",
     },
@@ -40,6 +44,7 @@
       src: Education, 
       alt: "education app",
       description: "Education App",
+      url: "",
       wrapperStyle: "justify-content: center;",
       imgStyle: "height: 100%; margin-bottom: -50px;",
     },
@@ -57,11 +62,15 @@
   </div>
   <div slot="bottom" class="portfolio-grid">
     {#each projects as project}
-      <div class="box">
-        <div class="thumbnail-wrapper" style={project.wrapperStyle}>
-          <img src={project.src} alt={project.alt} class="thumbnail" style={project.imgStyle} />
-        </div>
-        <div class="description">{project.description}</div>
+      <div class="box-wrapper">
+        <a href={`/portfolio/${project.url}`}>
+          <div class="box">
+            <div class="thumbnail-wrapper" style={project.wrapperStyle}>
+              <img src={project.src} alt={project.alt} class="thumbnail" style={project.imgStyle} />
+            </div>
+            <div class="description">{project.description}</div>
+          </div>
+        </a>
       </div>
     {/each}
   </div>
@@ -96,7 +105,11 @@
       & .box {
         padding: 8px;
         border-radius: var(--border-radius);
-        box-shadow: 0 1px 4px 0px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 1px 4px 0px rgba(0, 0, 0, 0.3);
+
+        &:hover {
+          box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.3);
+        }
 
         & .thumbnail-wrapper {
           height: 250px;
