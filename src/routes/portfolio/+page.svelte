@@ -5,7 +5,7 @@
   import BudgetAppMobile from "/src/assets/images/personal-finance-app/budget-app-mobile-1.png";
   import SearchForPeople from "/src/assets/images/hr-app/search-for-people.gif";
   import CMS from "/src/assets/images/cms/cms-pages.png";
-  import Education from "/src/assets/images/education-app/ti-ipad.png";
+  import Education from "/src/assets/images/education-platform/ti-ipad.png";
 
   const projects = [
     { 
@@ -28,25 +28,25 @@
       src: SearchForPeople, 
       alt: "HR app",
       description: "Human Resources App",
-      url: "",
+      url: "hr-app",
       wrapperStyle: "justify-content: flex-end;",
       imgStyle: "margin-right: -25px; box-shadow: -3px 3px 4px 0px rgba(0, 0, 0, 0.4);",
+    },
+    { 
+      src: Education, 
+      alt: "education platform",
+      description: "Education Platform",
+      url: "education-platform",
+      wrapperStyle: "justify-content: center;",
+      imgStyle: "height: 100%; margin-bottom: -50px;",
     },
     { 
       src: CMS, 
       alt: "content management system",
       description: "Content Management System (CMS)",
-      url: "",
+      url: "cms",
       wrapperStyle: "justify-content: center; padding: 5px;",
       imgStyle: "",
-    },
-    { 
-      src: Education, 
-      alt: "education app",
-      description: "Education App",
-      url: "",
-      wrapperStyle: "justify-content: center;",
-      imgStyle: "height: 100%; margin-bottom: -50px;",
     },
   ];
 </script>
