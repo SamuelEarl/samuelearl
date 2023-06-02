@@ -16,7 +16,7 @@
     <img src={Laptop} alt="laptop" class="laptop" />
   </div>
 
-  <p>This platform allows users to create accounts, sign-in, create their own courses, and take courses. The platform administrator can grant or revoke permissions for various permissions levels. The course pages utilitize WYSIWYG editors with media plugins that allow users to type text or embed images and videos — similar to content management systems.</p>
+  <p>This platform allows users to create accounts, sign-in, create their own courses, and take courses. The platform administrator can grant or revoke permissions for various permissions levels. The course pages utilitize WYSIWYG editors with media plugins that allow users to type text or embed images and videos&mdash;similar to content management systems.</p>
 </PortfolioPage>
 
 <style>
