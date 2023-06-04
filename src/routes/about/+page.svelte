@@ -1,14 +1,13 @@
 <script lang="ts">
   import Page from "/src/components/Page.svelte";
-  import Photo from "/src/assets/images/profile-photos/profile-photo-gray-scale-round-200x200.png";
+  import Photo from "/src/assets/images/profile-photos/profile-photo-transparent-background-crop-to-content.png";
 </script>
 
 <Page>
   <div class="top">
     <div class="left">
-      <h1>Hi,</h1>
-      <h1>I'm Sam.</h1>
-      <p>I'm a senior full-stack web developer based in a tiny town in Arizona and started working in web development in 2014. When I'm not creating software products, you'll find me spending time with my family, catching up on sports, or going to church.</p>
+      <h1>Hi,<br>I'm Sam.</h1>
+      <p>I'm a senior full-stack web developer based in a tiny town in Arizona and started working in web development in 2014. When I'm not creating software products, you'll find me spending time with my wife and children, catching up on sports, or doing church stuff.</p>
     </div>
     <div class="right">
       <img src={Photo} alt="profile" />
@@ -30,7 +29,7 @@
     .top {
       display: flex;
       flex-direction: column;
-      margin-bottom: 40px;
+      /* margin-bottom: 40px; */
 
       & .left {
         margin-bottom: 20px;
@@ -54,7 +53,7 @@
     .top {
       flex-direction: row;
       justify-content: space-between;
-      align-items: center;
+      /* align-items: center; */
 
       & .left {
         flex: 1;
@@ -68,6 +67,7 @@
         flex: 1;
         display: flex;
         justify-content: center;
+        align-items: flex-end;
       }
     }
   }
