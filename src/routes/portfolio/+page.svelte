@@ -2,6 +2,7 @@
   import Page from "/src/components/Page.svelte";
   import Portfolio from "/src/assets/images/bitmojis/portfolio.png";
   import HomepageOpenMenu from "/src/assets/images/data-scientist-dashboard/homepage-open-menu.png";
+  import LossPredictorHomepage from "/src/assets/images/loss-predictor/homepage.png";
   import InteractiveCharts from "/src/assets/images/data-dashboard/interactive-charts.gif";
   import BudgetAppMobile from "/src/assets/images/personal-finance-app/budget-app-mobile-1.png";
   import SearchForPeople from "/src/assets/images/hr-app/search-for-people.gif";
@@ -14,6 +15,14 @@
       alt: "data scientist dashboard",
       description: "Data Scientist Dashboard",
       url: "data-scientist-dashboard",
+      wrapperStyle: "justify-content: flex-end;",
+      imgStyle: "margin-right: -25px; box-shadow: -3px 3px 4px 0px rgba(0, 0, 0, 0.4);",
+    },
+    { 
+      src: LossPredictorHomepage, 
+      alt: "claims loss predictor",
+      description: "Claims Loss Predictor",
+      url: "claims-loss-predictor",
       wrapperStyle: "justify-content: flex-end;",
       imgStyle: "margin-right: -25px; box-shadow: -3px 3px 4px 0px rgba(0, 0, 0, 0.4);",
     },
