@@ -40,11 +40,26 @@ I will fail any LeetCode interview you throw at me because I don't spend my time
 ## My Personal Recommendations for Technical Interviews
 The following are the types of interviews that I feel have been the most helpful, both for me to get an understanding of what the company was working on and for the company to get an understanding of my skills:
 
-* A take-home assignment that provided a challenge similar to the kind of work the company was doing.
+* A take-home assignment that provides a challenge similar to the kind of work the company does.
 * Share a personal project that I have created (or create a project) and walk the interviewer through my code.
 * Walk through some code in my public GitHub repos.
-* A technical interview that asked questions that were relevant to the kind of work the company was doing.
+* A technical interview that asks questions that are relevant to the kind of work the company is doing.
 
-Obviously, each of these approaches has their pros and cons. However, I think the first three can be really helpful in determining someone's skill set. You can also check out <a href="https://github.com/poteto/hiring-without-whiteboards" target="_blank">Hiring Without Whiteboards</a> for other ideas to improve the hiring process.
+Obviously, each of these approaches has their pros and cons. However, I think the first three can be really helpful in determining someone's skill set. You can also check out <a href="https://github.com/poteto/hiring-without-whiteboards" target="_blank">Hiring Without Whiteboards</a> for other ideas to improve the hiring process. It might even be beneficial to ask candidates if they have a preference for the type of technical interview they want to do. That way they can let you know what they are most comfortable with.
+
+
+## Work With Your Strengths
+
+I think it is important to understand your strengths and weaknesses so you can work with your strengths and minimize your weaknesses as much as possible. 
+
+When I was in college I noticed that I had a really difficult time in a particular class. I worked really hard, studied my brains out, and still ended up with only a C+. I talked to my professor and described the challenges I was facing. He said that what I was describing reminded him of his son. He then asked me if I had been diagnosed with a learning disorder. That was the first time I had even considered the idea that I might have a learning disorder.
+
+So I scheduled an appointment with a psychologist for a learning evaluation. I found out that technically I do not have a learning disorder, but that I am very close to being outside of the normal range for learning abilities. The challenge I face is that it takes me a long time to process information. You can imagine how that might be difficult when trying to follow a complex lecture in a college class or when studying complex concepts for tests.
+
+How does this relate to technical interviews? I know that I am at a major disadvantage during live coding interviews (in comparison to many other job candidates) because I can't process problems and their solutions very quickly. It takes me longer than the next person to understand the code in a live coding interview and I have a hard time thinking through the problems and solutions&mdash;especially when someone is staring at me the whole time. However, since I am aware of this weakness that I have, I try to request take-home assignments instead of live coding interviews.
+
+One of the <a href="https://adhocteam.us/join/" target="_blank">best interview experiences</a> that I have had was when I was given a take-home assignment followed by a live situational interview. I was able to take the time I needed to complete the take-home assignment, which was very helpful for me. Then during the live situational interview I was asked questions like, "Tell us about a time when you had to get buy-in from other members of your team on a technical decision. How did you handle it and what was the result?" I can respond to those types of questions quickly because I am simply recalling past experiences from memory. That interview format helped the company understand my skill level and if I would be a good fit for their culture. It also allowed me to work with my strengths while minimizing my weaknesses.
+
+I also like that format because it would be hard for a candidate to cheat on a take-home assignment (e.g. get someone else to complete the assignment) and also pass the live situational interview. If you don't have the experience to complete the take-home assignment, then you probably won't have the experience to pass the situational interview with examples of things that you have actually done.
 
 I have been on both sides of hiring and I understand it is difficult. Hopefully something I have shared will be helpful to you moving forward.
