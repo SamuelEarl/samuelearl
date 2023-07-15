@@ -229,3 +229,11 @@ Explain the purpose of refresh tokens and access tokens. Look at my notes in my 
 
 * [Auth0 Quickstarts](https://auth0.com/docs/quickstarts)
 * Auth0's YouTube channel has moved to the [Okta YouTube channel](https://www.youtube.com/oktadev)
+
+
+## Sources
+
+* [Add a Login to Your Svelte Site With Auth0](https://www.learnwithjason.dev/add-a-login-to-your-svelte-site-with-auth0)
+* [Authenticating Svelte Applications](https://auth0.com/blog/authenticating-svelte-apps/)
+* [Auth0 Quickstarts - Single-Page App - JavaScript: Login](https://auth0.com/docs/quickstart/spa/vanillajs/01-login)
+* [When following the SPA example using LoginWIthRedirect does not properly login the user while LoginWithPopup does](https://github.com/auth0/auth0-spa-js/issues/996)
