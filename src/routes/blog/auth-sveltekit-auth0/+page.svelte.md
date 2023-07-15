@@ -1,5 +1,7 @@
 # Authentication for SvelteKit with Auth0
 
+TODO: Update the code examples and content to reflect the fact that I created a `export const auth0Client = writable();` store instead of the `auth0Client` option that was used in the original tutorials.
+
 Authentication (along with any security issue) in web development can be very terrifying to implement. It doesn't matter how much I read about authentication, I feel like I am always missing something and I wonder if my apps are secure enough. The basic concepts of authentication are not too difficult to wrap your mind around and implement, but when you start to consider the full suite of features that are necessary to get authentication working properly (e.g. confirmation emails, forgot password flows, multi-factor authentication), then authentication can become very daunting very quickly. Well, rather than agonize over the security of my web apps, I prefer to let a trusted company, with much more experience than me when it comes to web security, handle all of that for me.
 
 I like services like Auth0 because they provide a generous free version of their product so you can try it out without paying anything. Also, if you are creating a commercial app you can grow a little and generate some revenue before you have to pay for their service.
@@ -65,10 +67,10 @@ export async function createClient() {
   return auth0Client;
 }
 
-export async function login(auth0, options) {
+export async function login(auth0) {
   popupOpen.set(true);
   try {
-    await auth0.loginWithPopup(options);
+    await auth0.loginWithPopup();
 
     // Set the `user` store to equal the value returned from the Auth0 `getUser()` function.
     user.set(await auth0.getUser());
@@ -149,6 +151,67 @@ If you need to check the status of user authentication or get the user's informa
 {#if $isAuthenticated}
   <div>Logged In User: {JSON.stringify($user)}</div>
 {/if}
+```
+
+## If you are using the loginWithRedirect() API
+
+In your `auth.ts` file, replace this:
+
+```js
+await auth0.loginWithPopup();
+```
+
+with this:
+
+```js
+await auth0.loginWithRedirect({
+  authorizationParams: {
+    redirect_uri: window.location.origin
+  }
+});
+```
+
+If you want to redirect users to a page other than the one where they clicked your login button, then you will need to include that path at the end of the `redirect_uri`, like this:
+
+```js
+await auth0.loginWithRedirect({
+  authorizationParams: {
+    redirect_uri: window.location.origin + "/landing-page"
+  }
+});
+```
+
+Make sure you include that `redirect_uri` in your Allowed URLs in the Auth0 dashboard. For example:
+
+```
+Allowed Callback URLs
+
+http://localhost:5173,
+http://localhost:5173/landing-page,
+https://my-app.com,
+https://my-app.com/landing-page
+```
+
+In your `onMount` hook in your `+layout.svelte` file, update it to look like this:
+
+```js
+onMount(async () => {
+  await createClient();
+  isAuthenticated.set(await $auth0Client.isAuthenticated());
+  user.set(await $auth0Client.getUser());
+
+  // This part is needed if you are using the loginWithRedirect() API. See this tutorial: https://auth0.com/docs/quickstart/spa/vanillajs/01-login
+  // Check for the code and state parameters.
+  const query = window.location.search;
+  if (query.includes("code=") && query.includes("state=")) {
+
+    // Process the login state
+    await $auth0Client.handleRedirectCallback();
+    
+    // Use replaceState to redirect the user away and remove the querystring parameters
+    window.history.replaceState({}, document.title, "/");
+  }
+});
 ```
 
 
