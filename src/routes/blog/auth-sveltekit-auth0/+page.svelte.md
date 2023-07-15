@@ -95,7 +95,7 @@ export function logout(auth0) {
 * `authConfig.clientId`: In Auth0, go to your application and click on Settings. Copy and paste the "Client ID" string.
 
 TIPS: 
-* The `authConfig.domain` and `authConfig.clientId` are not private or sensitive pieces of data, so you can check them into GitHub.
+* The `authConfig.domain` and `authConfig.clientId` are intended to be exposed in client-side code, so they are not private or sensitive pieces of data. That means that you can check them into GitHub. 
 * You can create environment variables and reference those for the `authConfig.domain` and `authConfig.clientId` values.
 
 <br>
