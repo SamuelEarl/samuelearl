@@ -197,8 +197,6 @@ In your `onMount` hook in your `+layout.svelte` file, update it to look like thi
 ```js
 onMount(async () => {
   await createClient();
-  isAuthenticated.set(await $auth0Client.isAuthenticated());
-  user.set(await $auth0Client.getUser());
 
   // This part is needed if you are using the loginWithRedirect() API. See this tutorial: https://auth0.com/docs/quickstart/spa/vanillajs/01-login
   // Check for the code and state parameters.
@@ -211,6 +209,9 @@ onMount(async () => {
     // Use replaceState to redirect the user away and remove the querystring parameters
     window.history.replaceState({}, document.title, "/");
   }
+
+  isAuthenticated.set(await $auth0Client.isAuthenticated());
+  user.set(await $auth0Client.getUser());
 });
 ```
 
@@ -218,6 +219,7 @@ onMount(async () => {
 ## Making authenticated calls to your backend API
 
 See:
+* [JavaScript: Calling an API](https://auth0.com/docs/quickstart/spa/vanillajs/02-calling-an-api)
 * https://auth0.com/docs/libraries/auth0-single-page-app-sdk#call-an-api
 * https://auth0.com/docs/glossary?term=access-token
 * https://auth0.com/docs/glossary?term=refresh-token
@@ -236,4 +238,6 @@ Explain the purpose of refresh tokens and access tokens. Look at my notes in my 
 * [Add a Login to Your Svelte Site With Auth0](https://www.learnwithjason.dev/add-a-login-to-your-svelte-site-with-auth0)
 * [Authenticating Svelte Applications](https://auth0.com/blog/authenticating-svelte-apps/)
 * [Auth0 Quickstarts - Single-Page App - JavaScript: Login](https://auth0.com/docs/quickstart/spa/vanillajs/01-login)
+* [Auth0 Quickstarts - Single-Page App - JavaScript: Calling an API](https://auth0.com/docs/quickstart/spa/vanillajs/02-calling-an-api)
+* [Auth0 Identity Providers](https://auth0.com/docs/authenticate/identity-providers)
 * [When following the SPA example using LoginWIthRedirect does not properly login the user while LoginWithPopup does](https://github.com/auth0/auth0-spa-js/issues/996)
