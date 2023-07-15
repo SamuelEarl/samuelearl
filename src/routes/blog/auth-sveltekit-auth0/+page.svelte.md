@@ -16,10 +16,11 @@ Create an Auth0 account (or login to your existing account). When you create a n
 
 Once you have a tenant created, do the following in the Auth0 Dashboard:
 
-1. Create a new application. (After creating an Auth0 account you will probably do this automatically after creating your tenant.)
-2. Select a platform for your app: Single-Page App
-3. Select the technology: JavaScript
-4. In the "Application Settings," set the Allowed Callback URLs, Allowed Web Origins, Allowed Logout URLs to http://localhost:5173 (or whatever URL your app is running on). Make sure to save your changes at the bottom of the page.
+1. Create a new application. On the "Getting Started" page click "Create Application".
+2. Give your application a name.
+3. Choose an application type: Single-Page App
+4. Select the technology: JavaScript
+5. In the "Application Settings," set the Allowed Callback URLs, Allowed Web Origins, Allowed Logout URLs to http://localhost:5173 (or whatever URL your app is running on). Make sure to save your changes at the bottom of the page.
 
 NOTE: Eventually you will need to add both your local development URLs and any live URLs for production or staging environments. The URLs need to be comma separated. For example:
     
