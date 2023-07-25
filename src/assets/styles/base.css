@@ -101,6 +101,7 @@ pre {
   margin-bottom: 20px;
   border-radius: var(--border-radius);
   background-color: var(--bg-color-element-default) !important;
+  overflow-x: auto;
 }
 
 /* <code> or single backticks. See the comment for the `pre` styles above. */
@@ -109,6 +110,24 @@ code {
   padding: 0 3px;
   border-radius: var(--border-radius);
   background-color: var(--bg-color-element-default) !important;
+  overflow-x: auto;
+}
+
+@media (min-width: 0px) {
+  aside {
+    padding: 10px;
+    background-color: var(--neutral-100);
+
+    & h2, h3, h4 {
+      margin-top: 0;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  aside {
+    padding: 20px;
+  }
 }
 
 /* --------------------------------------------------------------------- */

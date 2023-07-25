@@ -13,6 +13,12 @@
     </ul>
   </div>
   <div>
+    <h2>identity &amp; access management (IAM)</h2>
+    <ul>
+      <li><a href="/blog/iam/iam-sveltekit-auth0">IAM with SvelteKit and Auth0</a></li>
+    </ul>
+  </div>
+  <div>
     <h2>technical interviews</h2>
     <ul>
       <li><a href="/blog/technical-interviews/good-bad-ugly">The Good and Then The Bad & Ugly</a></li>
