@@ -1,13 +1,10 @@
 # IAM with SvelteKit and Auth0
 
-TODOS: 
-* Update the code examples and content to reflect the fact that I created a  store instead of the `auth0Client` option that was used in the original tutorials.
+TODOS:
 * When a user logs in, Auth0 returns three items (which can be used in your application to set up and manage authentication):
     * access_token: to learn more, see the Access Token documentation
     * id_token: to learn more, see the ID Token documentation
     * expires_in: the number of seconds before the Access Token expires
-* Wrap all calls to the Auth0 SDK instance in a try/catch block. 
-    * Note that calls to the SDK instance can throw an exception if the authentication fails, if there is no user currently authenticated, or if the access token needs to be refreshed and that request fails. You will need to put a try/catch block around them to correctly handle any errors. These error checks are not shown on the article but they are available on the final sample app that you can download. (https://auth0.com/docs/quickstart/spa/vanillajs/01-login#read-the-user-profile)
 * Figure out what to do with the `error` store.
 
 * I am following this video tutorial: https://www.learnwithjason.dev/add-a-login-to-your-svelte-site-with-auth0. (That page has the full transcript at the bottom.) That video tutorial is a little old, but it implements Auth0 into a SvelteKit app. I am borrowing ideas from it and trying to update it. 
@@ -68,8 +65,15 @@ Once you have a tenant created, do the following in the Auth0 Dashboard:
 
 Now back in text editor, do the following:
 
-1. Install the Auth0 SDK: `npm install @auth0/auth0-spa-js`
-2. Create a `.env` file in your project root directory and enter these environment variables:
+### Step 1: Install the Auth0 SDK
+
+```js
+npm install @auth0/auth0-spa-js
+```
+
+### Step 2: Set environment variables
+
+Create a `.env` file in your project root directory and enter these environment variables:
 
 ```sh
 # /.env
@@ -84,11 +88,13 @@ You can get the values for those env vars in the Auth0 Dashboard. Go to your app
 * `PUBLIC_AUTH0_DOMAIN`: Copy and paste the "Domain" URL.
 * `PUBLIC_AUTH0_CLIENT_ID`: Copy and paste the "Client ID" string.
 
-3. Create a `/src/stores/auth.ts` file and enter this code:
+### Step 3: Create an auth service
+
+Since there is not an Auth0 SDK for Svelte or SvelteKit, you can create functions (`initAuth0Client()`, `login()`, `logout()`) that will expose the data that we need for an auth service.
+
+Create a `/src/stores/auth.ts` file and enter this code:
 
 ```ts
-// /src/stores/auth.ts
-
 import { writable } from "svelte/store";
 import { createAuth0Client } from "@auth0/auth0-spa-js";
 import { PUBLIC_AUTH0_DOMAIN, PUBLIC_AUTH0_CLIENT_ID } from "$env/static/public";
@@ -99,18 +105,17 @@ export const popupOpen = writable(false);
 export const error = writable();
 export const auth0Client = writable();
 
-// Create an auth service. Since there is not an 
-// Auth0 SDK for Svelte or SvelteKit, these 
-// functions (initAuth0Client(), login(), logout()) 
-// will expose the functions and information that 
-// we need for an auth service.
-
 // Initialize the Auth0 client.
 export async function initAuth0Client() {
-  auth0Client.set(await createAuth0Client({
-    domain: PUBLIC_AUTH0_DOMAIN,
-    clientId: PUBLIC_AUTH0_CLIENT_ID,
-  }));
+  try {
+    auth0Client.set(await createAuth0Client({
+      domain: PUBLIC_AUTH0_DOMAIN,
+      clientId: PUBLIC_AUTH0_CLIENT_ID,
+    }));
+  }
+  catch(err) {
+    console.error("initAuth0Client:", err);
+  }
 }
 
 export async function login(auth0) {
@@ -132,7 +137,12 @@ export async function login(auth0) {
 }
 
 export function logout(auth0) {
-  return auth0.logout();
+  try {
+    auth0.logout();
+  }
+  catch(err) {
+    console.error("logout:", err);
+  }
 }
 ```
 
@@ -150,11 +160,11 @@ Tips for the env vars:
 * The `PUBLIC_AUTH0_DOMAIN` and `PUBLIC_AUTH0_CLIENT_ID` are intended to be exposed in client-side code, so they are not private or sensitive pieces of data. That means that you can check them into GitHub. 
 * Make sure that you also create environment variables for your production environment (i.e. in your web host platform) otherwise you will get errors. If you do not want to deal with env vars, then you can copy and paste the `<my-tenant>.us.auth0.com` and `longrandomstring` values directly into the `createAuth0Client()` function.
 
-4. Import the auth code into your `+layout.svelte` file, configure the Auth0 client, and setup the `login` and `logout` services:
+### Step 4: Initial your auth service
+
+Open your `+layout.svelte` file, import the auth service code, initialize the Auth0 client, and setup the `login` and `logout` services:
 
 ```html
-<!-- +layout.svelte -->
-
 <script lang="ts">
   import { onMount } from "svelte";
   import { page } from "$app/stores";
@@ -166,14 +176,19 @@ Tips for the env vars:
   // If the user's credentials have not already been retrieved, then retrieve them here. This would come into play if the user refreshes the browser or comes back to the app after navigating away from it.
   // This should only fetch the user's credentials when the app is first loaded in the browser as opposed to fetching the user's credentials at every navigation.
   onMount(async () => {
-    // Initialize the Auth0 client.
-    await initAuth0Client();
-    // Set `isAuthenticated` to the value of `$auth0Client.isAuthenticated()`.
-    isAuthenticated.set(await $auth0Client.isAuthenticated());
-    // Set the `user` store to the authenticated user's object.
-    user.set(await auth0Client.getUser());
+    try {
+      // Initialize the Auth0 client.
+      await initAuth0Client();
+      // Set `isAuthenticated` to the value of `$auth0Client.isAuthenticated()`.
+      isAuthenticated.set(await $auth0Client.isAuthenticated());
+      // Set the `user` store to the authenticated user's object.
+      user.set(await auth0Client.getUser());
 
-    protectAuthRoutes($isAuthenticated, currentPath);
+      protectAuthRoutes($isAuthenticated, currentPath);
+    }
+    catch(err) {
+      console.error("Auth0 Client Initialization", err);
+    }
   });
 
   // This function will get called when the app first mounts. If a user enters a URL in the address bar and presses enter, then the app will get remounted and this function will get called.
@@ -225,25 +240,50 @@ If you need to check the status of user authentication or get the user's informa
 
 The examples above use the `loginWithPopup` API. If you want to use the `loginWithRedirect` API, then do the following:
 
-Update the login flow in your `auth.ts` file by replacing this:
+### Step 1: Update login config
+
+Update the login config in your `auth.ts` file by replacing this:
 
 ```js
-await auth0.loginWithPopup();
+export async function login(auth0) {
+  popupOpen.set(true);
+  try {
+    await auth0.loginWithPopup();
+
+    user.set(await auth0.getUser());
+    isAuthenticated.set(true);
+  } 
+  catch (err) {
+    console.error("login", err);
+  } 
+  finally {
+    popupOpen.set(false);
+  }
+}
 ```
 
 with this:
 
 ```js
-await auth0.loginWithRedirect({
-  authorizationParams: {
-    redirect_uri: window.location.origin
+export async function login(auth0) {
+  try {
+    await auth0.loginWithRedirect({
+      authorizationParams: {
+        // Redirect users to the homepage when they login.
+        redirect_uri: window.location.origin
+      }
+    });
+
+    user.set(await auth0.getUser());
+    isAuthenticated.set(true);
+  } 
+  catch (err) {
+    console.error("login", err);
   }
-});
+}
 ```
 
-This code will redirect the user back to the homepage. You can obtain the homepage location with the `window.location.origin` property.
-
-If you want to redirect users to a page other than the homepage, then you will need to include that path after the `window.location.origin` property, like this:
+This code will redirect the user back to the homepage. You can obtain the homepage location with the `window.location.origin` property. If you want to redirect users to a page other than the homepage, then you will need to include that path after the `window.location.origin` property, like this:
 
 ```js
 await auth0.loginWithRedirect({
@@ -260,13 +300,18 @@ http://localhost:5173/landing-page,
 https://my-app.com/landing-page
 ```
 
----
+### Step 2: Update logout config
 
 Update the logout flow in your `auth.ts` file by replacing this:
 
 ```js
 export function logout(auth0) {
-  return auth0.logout();
+  try {
+    auth0.logout();
+  }
+  catch(err) {
+    console.error("logout:", err);
+  }
 }
 ```
 
@@ -274,11 +319,16 @@ with this:
 
 ```js
 export function logout(auth0) {
-  auth0.logout({
-    logoutParams: {
-      returnTo: window.location.origin
-    }
-  });
+  try {
+    auth0.logout({
+      logoutParams: {
+        returnTo: window.location.origin
+      }
+    });
+  }
+  catch(err) {
+    console.error("logout:", err);
+  }
 }
 ```
 
@@ -291,39 +341,52 @@ http://localhost:5173,
 https://my-app.com,
 ```
 
----
+### Step 3: Update your auth service's initialization code
 
-In your `onMount` hook in your `+layout.svelte` file, update it to look like this:
+Open your `+layout.svelte` file and update your `onMount` hook to look like this:
 
 ```js
 // If the user's credentials have not already been retrieved, then retrieve them here. This would come into play if the user refreshes the browser or comes back to the app after navigating away from it.
 // This should only fetch the user's credentials when the app is first loaded in the browser as opposed to fetching the user's credentials at every navigation.
 onMount(async () => {
-  // Initialize the Auth0 client.
-  await initAuth0Client();
+  try {
+    // Initialize the Auth0 client.
+    await initAuth0Client();
 
-  // This part is needed if you are using the loginWithRedirect() API. 
-  // See this tutorial: https://auth0.com/docs/quickstart/spa/vanillajs/01-login
-  // ---------------------------------------------------------------------------
-  // When you call `loginWithRedirect()`, you will be taken to Auth0's Universal Login Page where the authentication process will be handled. You will then be redirected back to your app and the URL will including a `code` and `state` (or `error`) query parameter.
-  // Check the URL for the `code` and `state` parameters.
-  const query = window.location.search;
-  if (query.includes("code=") && query.includes("state=")) {
-    // Calling `handleRedirectCallback()` will process the user's logged in state. Only after calling `handleRedirectCallback()` can you then call `isAuthenticated()` and `getUser()` and get the necessary data.
-    await $auth0Client.handleRedirectCallback();
-    
-    // After the user is redirected back to your app and the user's logged in state has been processed with `handleRedirectCallback()`, use `replaceState()` to replace the current entry in the browser history with an entry for the "/welcome" route. This will also clear the query string in the URL so the code in this `if` block doesn't get executed again unnecessarily. If this code were to get executed again, after already processing the user's logged in state the first time, the `handleRedirectCallback()` method would cause an "Invalid state" error.
-    window.history.replaceState({}, "", "/welcome");
+    // When you call `loginWithRedirect()`, you will be taken to Auth0's Universal Login Page where the authentication process will be handled. You will then be redirected back to your app and the URL will including a `code` and `state` (or `error`) query parameter.
+    // Check the URL for the `code` and `state` parameters.
+    const query = window.location.search;
+    if (query.includes("code=") && query.includes("state=")) {
+      // Calling `handleRedirectCallback()` will process the user's logged in state. Only after calling `handleRedirectCallback()` can you then call `isAuthenticated()` and `getUser()` and get the necessary data.
+      await $auth0Client.handleRedirectCallback();
+      
+      // After the user is redirected back to your app and the user's logged in state has been processed with `handleRedirectCallback()`, use `replaceState()` to replace the current entry in the browser history with an entry for the "/login" route. This will also clear the query string in the URL so the code in this `if` block doesn't get executed again unnecessarily. If this code were to get executed again, after already processing the user's logged in state the first time, the `handleRedirectCallback()` method would cause an "Invalid state" error.
+      window.history.replaceState({}, "", "/login");
+    }
+
+    // Set `isAuthenticated` to the value of `$auth0Client.isAuthenticated()`.
+    isAuthenticated.set(await $auth0Client.isAuthenticated());
+    // Set the `user` store to the authenticated user's object.
+    user.set(await $auth0Client.getUser());
+
+    protectAuthRoutes($isAuthenticated, currentPath);
   }
-
-  // Set `isAuthenticated` to the value of `$auth0Client.isAuthenticated()`.
-  isAuthenticated.set(await $auth0Client.isAuthenticated());
-  // Set the `user` store to the authenticated user's object.
-  user.set(await $auth0Client.getUser());
-
-  protectAuthRoutes($isAuthenticated, currentPath);
+  catch(err) {
+    console.error("Auth0 Client Initialization", err);
+  }
 });
 ```
+
+NOTES:
+
+* The configs for the `loginWithRedirect` API are taken from this tutorial: [Auth0 Quickstarts - Single-Page App - JavaScript: Login](https://auth0.com/docs/quickstart/spa/vanillajs/01-login).
+* For more information about the `loginWithRedirect` configs, see [When following the SPA example using LoginWIthRedirect does not properly login the user while LoginWithPopup does](https://github.com/auth0/auth0-spa-js/issues/996).
+
+Keep in mind that you should wrap all calls to the Auth0 SDK instance in a `try/catch` block. This is the advice from the [Auth0 Quickstarts - Single-Page App - JavaScript: Login](https://auth0.com/docs/quickstart/spa/vanillajs/01-login) article:
+
+_Note that calls to the SDK instance can throw an exception if the authentication fails, if there is no user currently authenticated, or if the access token needs to be refreshed and that request fails. You will need to put a try/catch block around them to correctly handle any errors. These error checks are not shown on the article but they are available on the final sample app that you can download._
+
+---
 
 TODO: CONTINUE HERE:
 
