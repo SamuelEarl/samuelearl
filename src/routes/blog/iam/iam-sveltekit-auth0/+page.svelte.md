@@ -397,9 +397,47 @@ Start here: https://auth0.com/docs/quickstart/spa/vanillajs/01-login#restoring-l
 
 ## Making authenticated calls to your backend API
 
+### Step 1: Create an API in Auth0 Dashboard
+
+### Step 2: Create API endpoints in your app
+
+* Add middleware in the hooks file that will valide tokens that are being sent to the server. See https://kit.svelte.dev/docs/hooks
+* The https://www.npmjs.com/package/jsonwebtoken package will be used to validate JWTs (i.e. access tokens) from the authorization header and set (some a property on the `event.locals` object).
+* Set the `audience` property in your `createAuth0Client` function. I don't know what the `audience` property is used for.
+
+See this tutorial for ideas: https://dev.to/pilcrowonpaper/sveltekit-jwt-authentication-tutorial-2m34.
+
+### Step 3: Protect your endpoints
+
+* Each API endpoint that requires an access token should reference the values that are passed from the middleware. This will provide protection in a scalable way.
+* Add an error handler in your token validation middleware so that a JSON response is returned from your API in the event of a missing or invalid token.
+
+### Step 4: Call your API
+
 ```js
-// Get the access token from the Auth0 client
-const token = await auth0Client.getTokenSilently();
+async function testApiEndpoint() {
+  try {
+    // Get the access token from the Auth0 client.
+    const token = await $auth0Client.getTokenSilently();
+
+    // Make the call to the API, setting the token in the Authorization header.
+    const response = await fetch("/api/endpint", {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+
+    // Get the JSON result.
+    const result = await response.json();
+
+    // Set the result in the component.
+    // code goes here...
+  }
+  catch(err) {
+    // Display errors in the console
+    console.error(err);
+  }
+};
 ```
 
 See:
@@ -409,6 +447,84 @@ See:
 * https://auth0.com/docs/glossary?term=refresh-token
 
 Explain the purpose of refresh tokens and access tokens. Look at my notes in my "Identity & Access Management - How to implement auth and things to consider" doc.
+
+
+### Protecting routes
+
+When implementing any security feature you have to implement it on the server-side first. Then you can add client-side features that provide a better user experience (e.g. providing users with information that tells them that they do not have access to a particular resource or route). 
+
+UPDATE: Since this Auth0 app is an SPA app (i.e. all configurations and auth checking are done client-side), then I have to check for auth on the client-side too. So I don't think the following info applies for SvelteKit. Also, when creating an Auth0 application you have to use the SPA option because SvelteKit uses client-side routing.
+
+SPA frameworks often have client-side routers that allow you to check if a route requires authentication. You can redirect an unauthenticated user to a particular page (e.g. the login page) if they try to access a route that requires authentication. However, SvelteKit is a not a traditional SPA framework and it does not use a typical client-side router. So you have to handle route protection in a similar way that you would with a server-side rendered web framework.
+
+The following video has a pretty good walk-through for protecting routes in SvelteKit. It also explains `load` functions, the order in which data from the `load` functions gets loaded in `.svelte` components, and why you should not use `hooks` to protect your routes: [SvelteKit | Protected Routes](https://www.youtube.com/watch?v=CZGBeQEFIyI). 
+
+This is how you should protect your routes while using Auth0:
+
+Our Svelte components can load data before the component is rendered in the browser. This is accomplished with the `load` function in a [`+layout.js`](https://kit.svelte.dev/docs/routing#layout-layout-js), [`+layout.server.js`](https://kit.svelte.dev/docs/routing#layout-layout-server-js), [`+page.js`](https://kit.svelte.dev/docs/routing#page-page-js), or [`+page.server.js`](https://kit.svelte.dev/docs/routing#page-page-server-js) file.
+
+```js
+// +layout.server.js
+
+import { redirect } from "@sveltejs/kit";
+
+export async function load({ fetch }) {
+  const userAuthStatus = await fetch("http://localhost:5173/api/user-auth-status",{
+    method: "GET",
+    credentials: "include",
+    headers: {
+      "Accept": "application/json",
+      "content-type": "application/json",
+    }
+  });
+  
+  const isAuthenticated = await userAuthStatus();
+  
+  // This is how we protect routes:
+  // If the fetch call returns an unauthenticated user, or shows that the user does not have authorization to access a route, or if it returns an error (e.g. depending on how you setup the "/api/user-auth-status" route), then redirect the user to an appropriate route.
+  if (!isAuthenticated) {
+    throw redirect(303, "/login");
+  }
+   
+  return {
+    data: isAuthenticated
+  }
+}
+```
+
+This `load` function will run each time the component that it is associated with it gets mounted in the browser. That also means that if we have nested components/routes that are children of the above component/route, then the `load` function in the above component/route will NOT run when those child components are mounted in the browser. This is because all of the navigation is handled client-side and once a parent component is mounted in the browser, then it might now get mounted again (e.g. the `layout.svelte` file). In that case we can use the [`parent`](https://kit.svelte.dev/docs/load#using-parent-data) function in our `+page.server.js` files, which will wait for the parent route's `load` function to run before the child route's `load` function runs:
+
+```js
+// +page.server.js
+
+import { redirect } from "@sveltejs/kit";
+
+export async function load({ fetch, parent }) {
+  await parent();
+  const userAuthStatus = await fetch("http://localhost:5173/api/user-auth-status",{
+    method: "GET",
+    credentials: "include",
+    headers: {
+      "Accept": "application/json",
+      "content-type": "application/json",
+    }
+  });
+  
+  const isAuthenticated = await userAuthStatus();
+  
+  if (!isAuthenticated) {
+    throw redirect(303, "/login");
+  }
+   
+  return {
+    data: isAuthenticated
+  }
+}
+```
+
+## Configure authorization with Auth0
+
+https://auth0.com/docs/quickstart/backend/nodejs/interactive
 
 
 ## Additional Resources
