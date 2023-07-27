@@ -1,4 +1,4 @@
-# IAM with SvelteKit and Auth0
+# IAM with SvelteKit and Firebase Auth
 
 TODOS:
 * When a user logs in, Auth0 returns three items (which can be used in your application to set up and manage authentication):
@@ -17,9 +17,9 @@ IMPORTANT NOTE: Refer to this page ([Auth0 Single Page App SDK](https://auth0.co
 
 Identity &amp; Access Management (IAM) can be terrifying to implement in a web app. It doesn't matter how much I read about IAM, I feel like I am always missing something and I wonder if my apps have been properly secured. The basic concepts of IAM are not too difficult to wrap your mind around and implement, but when you start to consider the full suite of features that are necessary to get IAM working properly (e.g. confirmation emails, forgot password flows, multi-factor authentication), then IAM can become very daunting very quickly. Well, rather than agonize over the security of my web apps, I prefer to let a trusted company, with much more experience than me when it comes to web security, handle all of that for me.
 
-I like services like [Auth0](https://auth0.com/) because they provide a generous free version of their product so you can try it out without paying anything. Also, if you are creating a commercial app you can grow a little and generate some revenue before you have to pay for their service.
+I like services like [Firebase Auth](https://firebase.google.com/) because they provide a generous free version of their product so you can try it out without paying anything. Also, if you are creating a commercial app you can grow a little and generate some revenue before you have to pay for their service. I think Firebase Auth is easier to use than other popular services like Auth0. One of the biggest reasons for that is because there are tutorials for SvelteKit and Firebase Auth (see [SvelteKit Authentication Tutorial | Firebase Auth](https://www.youtube.com/watch?v=8NlUTFppJkU). Firebase also has a bunch of other integrations and extensions that you might want to use in your apps.
 
-This is how to implement IAM in a SvelteKit app with Auth0:
+This is how to implement IAM in a SvelteKit app with Firebase Auth:
 
 ## Create an Auth0 application
 
@@ -399,20 +399,7 @@ Start here: https://auth0.com/docs/quickstart/spa/vanillajs/01-login#restoring-l
 
 ### Step 1: Create an API in Auth0 Dashboard
 
-### Step 2: Create API endpoints in your app
-
-* Add middleware in the hooks file that will valide tokens that are being sent to the server. See https://kit.svelte.dev/docs/hooks
-* The https://www.npmjs.com/package/jsonwebtoken package will be used to validate JWTs (i.e. access tokens) from the authorization header and set (some a property on the `event.locals` object).
-* Set the `audience` property in your `createAuth0Client` function. I don't know what the `audience` property is used for.
-
-See this tutorial for ideas: https://dev.to/pilcrowonpaper/sveltekit-jwt-authentication-tutorial-2m34.
-
-### Step 3: Protect your endpoints
-
-* Each API endpoint that requires an access token should reference the values that are passed from the middleware. This will provide protection in a scalable way.
-* Add an error handler in your token validation middleware so that a JSON response is returned from your API in the event of a missing or invalid token.
-
-### Step 4: Call your API
+### Step 2: Call your API
 
 ```js
 async function testApiEndpoint() {
@@ -421,7 +408,7 @@ async function testApiEndpoint() {
     const token = await $auth0Client.getTokenSilently();
 
     // Make the call to the API, setting the token in the Authorization header.
-    const response = await fetch("/api/endpint", {
+    const response = await fetch("/api/endpoint", {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -439,6 +426,45 @@ async function testApiEndpoint() {
   }
 };
 ```
+
+### Step 3: Create API endpoints in your app
+
+* Add middleware in the hooks file that will valide tokens that are being sent to the server. See https://kit.svelte.dev/docs/hooks
+
+```js
+// /src/hooks.server.js
+
+/** @type {import('@sveltejs/kit').Handle} */
+export async function handle({ event, resolve }) {
+  try {
+    // Parse the access token from the `authorization` header and validate it.
+
+    accessToken = jwttoken.split(" ")[1];
+    // Get your secret key at https://[your_domain].auth0.com/.well-known/jwks.json.
+    const tokenPayload = jwt.verify(accessToken, secretKey);
+
+    event.locals.user = tokenPayload;
+    const response = await resolve(event);
+    return response;
+  }
+  catch(err) {
+    // Invalid or expired token.
+    // TODO: Convert this to a SvelteKit response:
+    return res.status(401).send({ msg: "Invalid token" });
+  }
+}
+```
+
+* The https://www.npmjs.com/package/jsonwebtoken package will be used to validate JWTs (i.e. access tokens) from the authorization header and set (some a property on the `event.locals` object).
+* Set the `audience` property in your `createAuth0Client` function. I don't know what the `audience` property is used for. UPDATE: It is a property on a JWT. See the jsonwebtoken package for some examples.
+
+See this tutorial for ideas: https://dev.to/pilcrowonpaper/sveltekit-jwt-authentication-tutorial-2m34.
+
+### Step 4: Protect your endpoints
+
+* Each API endpoint that requires an access token should reference the values that are passed from the middleware. This will provide protection in a scalable way.
+* Add an error handler in your token validation middleware so that a JSON response is returned from your API in the event of a missing or invalid token.
+
 
 See:
 * [JavaScript: Calling an API](https://auth0.com/docs/quickstart/spa/vanillajs/02-calling-an-api)

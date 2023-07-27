@@ -15,7 +15,7 @@
   <div>
     <h2>identity &amp; access management (IAM)</h2>
     <ul>
-      <li><a href="/blog/iam/iam-sveltekit-auth0">IAM with SvelteKit and Auth0</a></li>
+      <li><a href="/blog/iam/iam-sveltekit-firebase-auth">IAM with SvelteKit and Firebase Auth</a></li>
     </ul>
   </div>
   <div>
