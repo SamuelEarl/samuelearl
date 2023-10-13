@@ -5,23 +5,29 @@
 # a few thoughts
 
 <div class="grid">
-  <div>
-    <h2>domains &amp; hosting</h2>
+  <div> 
+    <h2>cyber &amp; web security</h2>
     <ul>
-      <li><a href="/blog/domains-and-hosting/cloudflare-domain-vercel-hosting">How to use a Cloudflare domain with Vercel hosting</a></li>
-      <li><a href="/blog/domains-and-hosting/create-redirect-for-www-on-cloudflare">How to create a redirect for `www` on Cloudflare</a></li>
+      <li><a href="/blog/cyber-and-web-security/defend-against-cyber-attacks">How to Defend Yourself Against Cyber Attacks</a></li>
     </ul>
   </div>
   <div>
+    <h2>domains &amp; hosting</h2>
+    <ul>
+      <li><a href="/blog/domains-and-hosting/cloudflare-domain-vercel-hosting">How to Use a Cloudflare Domain with Vercel Hosting</a></li>
+      <li><a href="/blog/domains-and-hosting/create-redirect-for-www-on-cloudflare">How to Create a Redirect for `www` on Cloudflare</a></li>
+    </ul>
+  </div>
+  <!-- <div>
     <h2>identity &amp; access management (IAM)</h2>
     <ul>
       <li><a href="/blog/iam/iam-sveltekit-firebase-auth">IAM with SvelteKit and Firebase Auth</a></li>
     </ul>
-  </div>
+  </div> -->
   <div>
     <h2>technical interviews</h2>
     <ul>
-      <li><a href="/blog/technical-interviews/good-bad-ugly">The Good and Then The Bad & Ugly</a></li>
+      <li><a href="/blog/technical-interviews/good-bad-ugly">The Good and The Bad & Ugly</a></li>
     </ul>
   </div>
 </div>

@@ -1,4 +1,4 @@
-# How to create a redirect for `www` on Cloudflare
+# How to Create a Redirect for `www` on Cloudflare
 
 When you host a site on Cloudflare it is a good idea to create a redirect from `www` to your main domain.
 

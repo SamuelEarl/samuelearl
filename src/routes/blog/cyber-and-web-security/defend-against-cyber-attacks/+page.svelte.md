@@ -1,0 +1,26 @@
+# How to Defend Yourself Against Cyber Attacks
+
+I recently purchased the "Real-World Ethical Hacking: Hands-on Cybersecurity" course by Dr. Bryson Payne on Udemy. I highly recommend it! Dr. Payne provides great information about hacking and how to protect yourself against many common attacks. This post contains a few tips to protect yourself that Dr. Payne provides along with some additional tips that I have found as I have researched cybersecurity.
+
+
+## Password Tips
+* Use a password manager when possible. There are many good password managers available such as BitWarden, 1Password, Dashlane, and KeePass. LastPass is another option, although it has suffered a number of vulnerabilities in recent years. 
+* If using a password manager is not an option, or when you need to memorize a master password for your password manager software, then use long, random passphrases of 5 to 7 unrelated words. These types of passphrases are more difficult for hackers to crack. The passphrases that you use should be easy for you to remember.
+* Do not write passwords down and leave them out in the open. Always keep your passwords secure and do not share them. 
+* Letting your browser store your passwords can be a safe option as long as no one steals your computer. Remember that physical access is total access. So if your computer is stolen, then your passwords can also be stolen if they are stored in your browser. You should only store passwords in a browser that is running on your personal computer that you own and that has a very low chance of being stolen (e.g. it rarely leaves your home). 
+* Make your email password your toughest one to crack. If a hacker gains access to your email account, then they can reset your other passwords and gain access to your other accounts.
+* Use 2-factor (i.e. multi-factor) authentication for your most important sites (e.g. email, banking).
+* Use different passwords for each site so that hackers who do steal your credentials won't be able to use them on multiple sites.
+* Only use secure websites (https instead of http).
+* Web admins should ALWAYS salt password hashes when storing passwords in a database. Salting a password adds random characters to a password, which makes it more difficult to crack.
+
+
+## Phishing Attacks
+* Only click links in an email if you initiated the email. For example, if you initiated a 2-factor authentication process, then an email you receive as part of that process should be fine to click on.
+* Be cautious when clicking links in emails. For example, if you get an email from a source that seems trustworthy (e.g. your bank), then go directly to your bank website and login. Do NOT click any links in the email. If you go to your bank's website and login, then you initiated that process and you will be safe.
+
+
+## Malware Attacks
+* Only click links and download software from trusted sources. Never click on suspicious email or internet links and never download suspicious software from untrusted sources.
+* Enable firewall and antivirus software.
+* Check for and run software updates regularly (at least once a month) for all computer software, including web browsers.

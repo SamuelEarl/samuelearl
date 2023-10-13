@@ -1,4 +1,4 @@
-# How to use a Cloudflare domain with Vercel hosting
+# How to Use a Cloudflare Domain with Vercel Hosting
 
 I like using Cloudflare in my web projects. This is in large part because they keep their costs down and they also have really great products. Whenever I register new domain names I will register them with Cloudflare, but I might use other web hosting providers, depending on the needs of my app.
 
