@@ -18,6 +18,7 @@ I recently purchased the "Real-World Ethical Hacking: Hands-on Cybersecurity" co
 ## Phishing Attacks
 * Only click links in an email if you initiated the email. For example, if you initiated a 2-factor authentication process, then an email you receive as part of that process should be fine to click on.
 * Be cautious when clicking links in emails. For example, if you get an email from a source that seems trustworthy (e.g. your bank), then go directly to your bank website and login. Do NOT click any links in the email. If you go to your bank's website and login, then you initiated that process and you will be safe.
+* Use a browser extension or plugin, like the <a href="https://www.netcraft.com/apps-extensions/browser-extension/" target="_blank">Netcraft Browser Extension</a>, to help guard against certain types of cybercrime.
 
 
 ## Malware Attacks

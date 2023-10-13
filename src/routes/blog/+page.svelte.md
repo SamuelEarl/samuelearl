@@ -18,12 +18,12 @@
       <li><a href="/blog/domains-and-hosting/create-redirect-for-www-on-cloudflare">How to Create a Redirect for `www` on Cloudflare</a></li>
     </ul>
   </div>
-  <div>
+  <!-- <div>
     <h2>identity &amp; access management (IAM)</h2>
     <ul>
       <li><a href="/blog/iam/iam-sveltekit-firebase-auth">IAM with SvelteKit and Firebase Auth</a></li>
     </ul>
-  </div>
+  </div> -->
   <div>
     <h2>technical interviews</h2>
     <ul>
