@@ -4,7 +4,7 @@
 
 Working with dates can get confusing. Depending on the time of day or the timezone in which your browser or server are located or whether you are working in a browser or in a Node.js environment, you could see different dates and times in the Date objects. Why is that? This page is an attempt to demystify the JavaScript Date object and to provide some solutions to this confusing mess.
 
-* UTC is a way to track time and it forms the basis for time zones (it is the successor to Greenwich Mean Time). ISO 8601 is a standardized format that is used for datetime objects and has this format: `2019-11-14T00:55:31.820Z` (https://stackoverflow.com/a/58848028). So you can think of UTC as a time zone and ISO as a standardized format for expressing dates and times.
+* UTC is a way to track time and it forms the basis for time zones (it is the successor to Greenwich Mean Time). ISO 8601 is a standardized format that is used for datetime objects and has this format: `2019-11-14T00:55:31.820Z` (https://stackoverflow.com/a/58848028). So you can think of UTC as a time zone and ISO as a standardized format for displaying dates and times.
 * Browsers and servers use timestamps based on where they are located, so you can get conflicting datetime stamps due to that fact.
 * You can use the `toISOString()` method to convert all datetime objects to UTC time in both your browser and on your server. The timezone for `toISOString()` is always UTC (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString). This will preserve the datetime and it can easily be converted to a Date object. See https://stackoverflow.com/a/35124409.
 * Make sure that servers only use and return a datetime in the standardized ISO 8601-format (https://stackoverflow.com/a/31453408). You can then convert date objects to local time in the browser, if necessary (https://stackoverflow.com/questions/6525538/convert-utc-date-time-to-local-date-time). This idea reminds me of the concept of having a single source of truth. For example, you can use ISO date strings as your single source of truth on the server and in your database and then convert those ISO strings to local time and to a specific format in a user's browser, if needed.
@@ -13,7 +13,19 @@ Working with dates can get confusing. Depending on the time of day or the timezo
 
 ## Recommendations
 
-Store dates in databases as stings in UTC time using the `toISOString()` method. All data in browsers are dispayed as strings, so if you need to display dates to a user, then those dates will just be strings anyway. So if you store your dates as strings in your database, then when you retrieve those dates from your database you can convert them to Date objects, if necessary (e.g. if you need to manipulate a date or convert it to a different timezone), or convert them to a different format before displaying them to the user. If you think of working with dates in terms of working with the string version of those dates, then you can avoid many of the pitfalls that are associated with Date objects.
+One idea is to convert all your inputs and outputs involving dates to strings. If you need to manipulate a date, then you can convert it to an object, perform the manipulations, and then convert it back to a string before storing it in a database (an input) or displaying it in a browser (an output). For example:
+
+1. Store dates in your database as ISO-formatted date strings in UTC time using the `toISOString()` method (an input).
+2. When you retrieve the date string from the database:
+    1. If you need to manipulate the date before displaying the date string in the browser:
+        1. Then convert the ISO-formatted date string to a Date object and use JavaScript's UTC functions to set parts of the Date object (e.g. `setUTCDate()`, `setUTCHours()`).
+        2. Convert the Date object back to a string before displaying it in the browser. You can use one of the many JavaScript `toString` functions (e.g. `toISOString()`, `toLocaleString()`) or create your own custom string from the Date object using UTC functions (e.g. `getUTCDate()`, `getUTCHours()`).
+    2. If you need to create a custom date string from the ISO-formatted date string that was retrieved from your database, then use JavaScript's date formatting methods (e.g. `Intl.DateTimeFormat()`) or string methods (e.g. `String.substring()`, `String.split()`) on the ISO-formatted date string to create the date string that you need.
+3. Display the date string in the browser (an output).
+
+If you think of working with dates in terms of working with the string version of those dates, then you can avoid many of the pitfalls that are associated with Date objects.
+
+For example, you can store dates in databases (an input) as strings in UTC time using the `toISOString()` method. All data in browsers are dispayed as strings, so if you need to display dates to a user in a browser (an output), then those dates will just be strings anyway. So if you store your dates as strings in your database, then when you retrieve those dates from your database you can convert them to Date objects, if necessary (e.g. if you need to manipulate a date or convert it to a different timezone), or convert them to a different format before displaying them to the user.
 
 Remember that when creating dates or working with dates, it is probably best to always work with the UTC timezone and it is recommended to use the ISO format. If you need to display dates or times to a user, for example, you can always convert date strings and Date objects to a different timezone or format, if necessary.
 
