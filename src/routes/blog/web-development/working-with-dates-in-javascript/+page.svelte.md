@@ -13,9 +13,11 @@ Working with dates can get confusing. Depending on the time of day or the timezo
 
 ## Recommendations
 
+Store dates in databases as stings in UTC time using the `toISOString()` method. All data in browsers are dispayed as strings, so if you need to display dates to a user, then those dates will just be strings anyway. So if you store your dates as strings in your database, then when you retrieve those dates from your database you can convert them to Date objects, if necessary (e.g. if you need to manipulate a date or convert it to a different timezone), or convert them to a different format before displaying them to the user. If you think of working with dates in terms of working with the string version of those dates, then you can avoid many of the pitfalls that are associated with Date objects.
+
 Remember that when creating dates or working with dates, it is probably best to always work with the UTC timezone and it is recommended to use the ISO format. If you need to display dates or times to a user, for example, you can always convert date strings and Date objects to a different timezone or format, if necessary.
 
-It is important to understand that the implementation of Date between browsers and Node.js is different. For example, Node.js uses ISO-formatted Date objects set in the UTC timezone (see this [GitHub issue](https://github.com/nodejs/node/issues/9805#issuecomment-266484974)) while browsers use a string representing the date interpreted in the local timezone. There are a few things you can do to avoid these differences:
+It is important to understand that the implementation of Date between browsers and Node.js is different. For example, Node.js uses ISO-formatted Date objects set in the UTC timezone (see this [GitHub issue](https://github.com/nodejs/node/issues/9805#issuecomment-266484974)) while browsers use a Date object representing the date interpreted in the local timezone ([MDN Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)). There are a few things you can do to avoid these differences:
 
 * Since strings do not get converted into different formats when transferred between different environments (browser, server, database), you can use the string version of Date objects instead of Date objects themselves. For example, the `toISOString()` method will work in both browsers and Node.js and is transferrable between both environments without any conversion or formatting issues. Just be aware that if you pass the result of the `toISOString()` method to a `new Date()` constructor, then you will get different results depending on the environment. 
 * You can also use a library like [Moment.js](https://momentjs.com/) in both your frontend and backend code. You can then manage the format of your dates and you should have the same value in both environments.
@@ -71,7 +73,7 @@ const isoDateString = new Date(timestamp).toISOString();
 
 ### Set the time of a Date object in UTC time
 
-Instead of using `setHours()` on a Date object, use the `setUTCHours()` method. This will work in browsers and Node.js, but in Node.js the Date object will still be an ISO-formatted Date object set in UTC time and in browsers the Date object will still be a string representing the date interpreted in the local timezone.
+Instead of using `setHours()` on a Date object, use the `setUTCHours()` method. This will work in browsers and Node.js, but in Node.js the Date object will be an ISO-formatted Date object set in UTC time and in browsers the Date object will represent the date interpreted in the local timezone. So, in the browser, if you want to display an ISO-formatted date that is set to UTC time to your users, then you will have to convert the Date object to a date string with the `toISOString()` method.
 
 ```
 // Set `date` to the first millisecond of the date.
@@ -81,7 +83,7 @@ date.setUTCHours(0, 0, 0, 0);
 date.setUTCHours(23, 59, 59, 999);
 ```
 
-Keep in mind that the `setUTCHours()` method will return a timestamp in milliseconds, but `date` will still be a Date object with UTC time and in ISO format. So if you use this in a function and you want to return the milliseconds that represent the Date object, then you would do this: 
+Keep in mind that the `setUTCHours()` method will return a timestamp in milliseconds, but `date` will still be a Date object. So if you use this in a function and you want to return the milliseconds that represent the Date object, then you would do this: 
 
 ```
 return startDate.setUTCHours(0, 0, 0, 0);
