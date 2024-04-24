@@ -30,6 +30,12 @@
       <li><a href="/blog/technical-interviews/good-bad-ugly">The Good and The Bad & Ugly</a></li>
     </ul>
   </div>
+  <div>
+    <h2>web development</h2>
+    <ul>
+      <li><a href="/blog/web-development/working-with-dates-in-javascript">Working with Dates in JavaScript</a></li>
+    </ul>
+  </div>
 </div>
 
 <style>
