@@ -4,62 +4,79 @@
 
 # a few thoughts
 
-<div class="grid">
-  <div> 
-    <h2>cyber &amp; web security</h2>
-    <ul>
-      <li><a href="/blog/cyber-and-web-security/defend-against-cyber-attacks">How to Defend Yourself Against Cyber Attacks</a></li>
-    </ul>
+<div class="content">
+  <div class="left-col">
+    <div class="topic">
+      <h2>cyber &amp; web security</h2>
+      <ul>
+        <li><a href="/blog/cyber-and-web-security/defend-against-cyber-attacks">How to Defend Yourself Against Cyber Attacks</a></li>
+      </ul>
+    </div>
+    <div class="topic">
+      <h2>domains &amp; hosting</h2>
+      <ul>
+        <li><a href="/blog/domains-and-hosting/cloudflare-domain-vercel-hosting">How to Use a Cloudflare Domain with Vercel Hosting</a></li>
+        <li><a href="/blog/domains-and-hosting/create-redirect-for-www-on-cloudflare">How to Create a Redirect for `www` on Cloudflare</a></li>
+      </ul>
+    </div>
+    <div class="topic">
+      <h2>graph databases</h2>
+      <ul>
+        <li><a href="/blog/graph-databases/web-development-with-tigergraph">Web Development with TigerGraph</a></li>
+        <!-- <li><a href="/blog/graph-databases/nebulagraph">NebulaGraph</a></li> -->
+        <!-- <li><a href="/blog/graph-databases/amazon-neptune">Amazon Neptune</a></li> -->
+        <!-- <li><a href="/blog/graph-databases/edgedb">EdgeDB - A Relational-Graph Database</a></li> -->
+      </ul>
+    </div>
   </div>
-  <div>
-    <h2>domains &amp; hosting</h2>
-    <ul>
-      <li><a href="/blog/domains-and-hosting/cloudflare-domain-vercel-hosting">How to Use a Cloudflare Domain with Vercel Hosting</a></li>
-      <li><a href="/blog/domains-and-hosting/create-redirect-for-www-on-cloudflare">How to Create a Redirect for `www` on Cloudflare</a></li>
-    </ul>
-  </div>
-  <!-- <div>
-    <h2>identity &amp; access management (IAM)</h2>
-    <ul>
-      <li><a href="/blog/iam/iam-sveltekit-firebase-auth">IAM with SvelteKit and Firebase Auth</a></li>
-    </ul>
-  </div> -->
-  <div>
-    <h2>technical interviews</h2>
-    <ul>
-      <li><a href="/blog/technical-interviews/good-bad-ugly">The Good and The Bad & Ugly</a></li>
-    </ul>
-  </div>
-  <div>
-    <h2>web development</h2>
-    <ul>
-      <li><a href="/blog/web-development/working-with-dates-in-javascript">Working with Dates in JavaScript</a></li>
-    </ul>
+  <div class="right-col">
+    <!-- <div class="topic">
+      <h2>identity &amp; access management (IAM)</h2>
+      <ul>
+        <li><a href="/blog/iam/iam-sveltekit-firebase-auth">IAM with SvelteKit and Firebase Auth</a></li>
+      </ul>
+    </div> -->
+    <div class="topic">
+      <h2>technical interviews</h2>
+      <ul>
+        <li><a href="/blog/technical-interviews/good-bad-ugly">The Good and The Bad & Ugly</a></li>
+      </ul>
+    </div>
+    <div class="topic">
+      <h2>web development</h2>
+      <ul>
+        <li><a href="/blog/web-development/working-with-dates-in-javascript">Working with Dates in JavaScript</a></li>
+      </ul>
+    </div>
   </div>
 </div>
 
 <style>
+  h1 {
+    margin-bottom: 25px;
+  }
+
   h2 {
-    margin-top: 20px; 
+    margin: 0; 
     font-size: 2rem;
     font-weight: 700;
   }
 
-  ul {
-    margin-top: 20px;
-  }
-
   @media (--xs-up) {
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0 30px;
+    .content {
+      display: flex;
+      flex-direction: column;
+
+      & .topic {
+        margin-bottom: 40px;
+      }
     }
   }
 
   @media (--lg-up) {
-    .grid {
-      grid-template-columns: 1fr 1fr;
+    .content {
+      flex-direction: row;
+      gap: 0 50px;
     }
   }
 </style>

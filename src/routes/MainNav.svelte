@@ -14,7 +14,7 @@
       url: "/portfolio",
     },
     {
-      label: "open source projects",
+      label: "open source",
       url: "/open-source-projects",
     },
     {
