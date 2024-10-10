@@ -19,6 +19,14 @@
         <li><a href="/blog/domains-and-hosting/create-redirect-for-www-on-cloudflare">How to Create a Redirect for `www` on Cloudflare</a></li>
       </ul>
     </div>
+    <!-- <div class="topic">
+      <h2>git</h2>
+      <ul>
+        <li><a href="/blog/git/software-development-workflow-with-git">Software Development Workflow with Git</a></li>
+      </ul>
+    </div> -->
+  </div>
+  <div class="right-col">
     <div class="topic">
       <h2>graph databases</h2>
       <ul>
@@ -28,8 +36,6 @@
         <!-- <li><a href="/blog/graph-databases/edgedb">EdgeDB - A Relational-Graph Database</a></li> -->
       </ul>
     </div>
-  </div>
-  <div class="right-col">
     <!-- <div class="topic">
       <h2>identity &amp; access management (IAM)</h2>
       <ul>
@@ -39,7 +45,7 @@
     <div class="topic">
       <h2>technical interviews</h2>
       <ul>
-        <li><a href="/blog/technical-interviews/good-bad-ugly">The Good and The Bad & Ugly</a></li>
+        <li><a href="/blog/technical-interviews/good-bad-ugly">The Good, The Bad & The Ugly</a></li>
       </ul>
     </div>
     <div class="topic">

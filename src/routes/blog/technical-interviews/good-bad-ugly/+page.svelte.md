@@ -1,4 +1,4 @@
-# Technical Interviews: The Good and The Bad & Ugly
+# Technical Interviews: The Good, The Bad & The Ugly
 
 I recently failed a technical interview in epic fashion and I didn't even care. (Well, that's not entirely true. I was bothered by the format of the interview, but I didn't mind that I failed the interview.) The following are my feelings about technical interviews.
 
