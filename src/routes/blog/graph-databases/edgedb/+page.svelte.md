@@ -10,6 +10,6 @@ EdgeDB is not necessarily a graph database, but it uses many graph concepts that
 * Solid backing and investors, which provides some confidence that EdgeDB will be around for a while.
 * EdgeDB branches make it easier to develop and test features by coordinating your code and data for a particular feature.
 * After the 1.0 release, they have been able to iterate and add new features much faster than before. (See [The future of EdgeDB (2022) — Yury Selivanov | EdgeDB Day](https://www.youtube.com/watch?v=31k2AoqxWX0))
-* EdgeDB is completely open source. Some graph databases are not open source. Maybe that is not a big deal, but that makes me feel a little uneasy because I am used to using open source software.
+* EdgeDB is completely open source. Some graph databases are not open source. Maybe that is not a big deal, but that makes me feel a little uneasy because I am used to using open source software and it makes me wonder if they are trying to hide something.
 * EdgeDB supports multiple language drivers, has connection pooling built-in, and has documentation for integrating with serverless functions, including Cloudflare Workers. Neo4j is the largest graph database available, so it has some of this stuff. Other graph databases, like TigerGraph, have almost none of this stuff.
 * A lot of smart technology people are either backing EdgeDB or they are involved somehow (e.g. consultants).
