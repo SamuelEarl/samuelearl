@@ -6,7 +6,7 @@ EdgeDB is not necessarily a graph database, but it uses many graph concepts that
 * The schema and CRUD operations are designed around graph concepts to allow more flexible data modeling and database operations.
 * The resulting dataset that is returned from a query is in a hierarchical format and is the same structure as a GraphQL query result. This is perfect for web apps! The datasets that are returned from graph databases often require complex parsing to get to the necessary data. It is obvious that these graph databases were not designed for web apps.
 * EdgeDB offers a free tier that you can use to test ideas and build an MVP.
-* Solid infrastructure. EdgeDB is built on top of Postgres, which is battle tested.
+* Solid architecture. EdgeDB is built on top of Postgres, which is battle tested.
 * Solid backing and investors, which provides some confidence that EdgeDB will be around for a while.
 * EdgeDB branches make it easier to develop and test features by coordinating your code and data for a particular feature.
 * After the 1.0 release, they have been able to iterate and add new features much faster than before. (See [The future of EdgeDB (2022) — Yury Selivanov | EdgeDB Day](https://www.youtube.com/watch?v=31k2AoqxWX0))
