@@ -43,15 +43,16 @@
       </ul>
     </div> -->
     <div class="topic">
-      <h2>technical interviews</h2>
+      <h2>javascript</h2>
       <ul>
-        <li><a href="/blog/technical-interviews/good-bad-ugly">The Good, The Bad & The Ugly</a></li>
+        <li><a href="/blog/javascript/invoke-apis-concurrently-with-promise-all">Invoke APIs Concurrently with Promise.all()</a></li>
+        <li><a href="/blog/javascript/working-with-dates-in-javascript">Working with Dates in JavaScript</a></li>
       </ul>
     </div>
     <div class="topic">
-      <h2>web development</h2>
+      <h2>technical interviews</h2>
       <ul>
-        <li><a href="/blog/web-development/working-with-dates-in-javascript">Working with Dates in JavaScript</a></li>
+        <li><a href="/blog/technical-interviews/good-bad-ugly">The Good, The Bad & The Ugly</a></li>
       </ul>
     </div>
   </div>
