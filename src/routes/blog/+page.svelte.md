@@ -50,6 +50,12 @@
       </ul>
     </div>
     <div class="topic">
+      <h2>python</h2>
+      <ul>
+        <li><a href="/blog/python/async-programming">Asyncronous Programming</a></li>
+      </ul>
+    </div>
+    <div class="topic">
       <h2>technical interviews</h2>
       <ul>
         <li><a href="/blog/technical-interviews/good-bad-ugly">The Good, The Bad & The Ugly</a></li>
