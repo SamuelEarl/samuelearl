@@ -25,8 +25,6 @@
         <li><a href="/blog/git/software-development-workflow-with-git">Software Development Workflow with Git</a></li>
       </ul>
     </div> -->
-  </div>
-  <div class="right-col">
     <div class="topic">
       <h2>graph databases</h2>
       <ul>
@@ -36,6 +34,8 @@
         <!-- <li><a href="/blog/graph-databases/edgedb">EdgeDB - A Relational-Graph Database</a></li> -->
       </ul>
     </div>
+  </div>
+  <div class="right-col">
     <!-- <div class="topic">
       <h2>identity &amp; access management (IAM)</h2>
       <ul>
