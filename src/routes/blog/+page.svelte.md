@@ -52,7 +52,7 @@
     <div class="topic">
       <h2>python</h2>
       <ul>
-        <li><a href="/blog/python/async-programming">Asyncronous Programming</a></li>
+        <li><a href="/blog/python/async-programming">Asynchronous Programming</a></li>
       </ul>
     </div>
     <div class="topic">
