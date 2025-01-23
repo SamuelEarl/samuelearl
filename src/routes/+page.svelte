@@ -17,7 +17,7 @@
         <h1>backend</h1>
         <p>Senior backend developer with experience in Node.js, Python, SQL databases, NoSQL databases, and serverless functions.</p>
       </div>
-      <div class="ux-design">
+      <div class="ml-ai">
         <h1>ml & ai</h1>
         <p>Experience creating <span class="tooltip">ML<span class="tooltip-text">Machine Learning</span></span> / <span class="tooltip">AI<span class="tooltip-text">Artificial Intelligence</span></span> scripts for end-user products and working with data scientists on data intensive projects.
       </div>
