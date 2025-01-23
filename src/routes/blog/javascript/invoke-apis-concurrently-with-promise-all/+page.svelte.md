@@ -1,6 +1,6 @@
 # Invoke APIs Concurrently with Promise.all()
 
-If you have a two or more asynchronous functions, whose results do NOT depend on each other, then you can call them concurrently, as in the following example. However, if you need to wait for the response of one function to resolve before you can call the next function, then this won't work and you will have to `await` the responses of each async function call.
+If you have a two or more asynchronous functions, whose results do NOT depend on each other, then you can call them concurrently, as in the following example. However, if you need to wait for the response of one function to resolve before you can call the next function, then this won't work and you will have to `await` the responses of each async function call sequentially.
 
 ```js
 async function fetchUsers() {
@@ -32,7 +32,8 @@ async function invokeConcurrently(callbacks) {
   return results;
 }
 
-invokeConcurrently([fetchUsers, fetchProducts, fetchPrices]);
+await invokeConcurrently([fetchUsers, fetchProducts, fetchPrices]);
+ 
 ```
 
 The `invokeConcurrently()` function takes an array of asynchronous callback functions as input. This function will map over the array of callback functions, invoke each callback, and push the callback response (which will be a pending promise) to the `promises` array. Each promise in the `promises` array will resolve asynchronously in the `Promise.all()` method. Note that when the callback functions are called they are not `await`ed. This allows the callback to return a pending promise without waiting for it to resolve before the next callback is invoked.
