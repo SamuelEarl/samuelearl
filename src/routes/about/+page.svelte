@@ -7,7 +7,7 @@
   <div class="top">
     <div class="left">
       <h1>Hi,<br>I'm Sam.</h1>
-      <p>I'm a senior full-stack web developer based in a tiny town in Arizona and started working in web development in 2014. When I'm not creating software products, you'll find me spending time with my wife and children, catching up on sports, or doing church stuff.</p>
+      <p>I'm a senior full-stack web developer based in a small city in Arizona and started working in web development in 2014. When I'm not creating software products, you'll find me spending time with my wife and children, catching up on sports, or doing church stuff.</p>
     </div>
     <div class="right">
       <img src={Photo} alt="profile" />
