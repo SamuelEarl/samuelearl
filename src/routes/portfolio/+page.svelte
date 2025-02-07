@@ -78,20 +78,22 @@
     </div>
     <div class="right"><img src={Portfolio} alt="portfolio" /></div>
   </div>
-  <div slot="bottom" class="portfolio-grid">
-    {#each projects as project}
-      <div class="box-wrapper">
-        <a href={`/portfolio/${project.url}`}>
-          <div class="box">
-            <div class="thumbnail-wrapper" style={project.wrapperStyle}>
-              <img src={project.src} alt={project.alt} class="thumbnail" style={project.imgStyle} />
+  {#snippet bottom()}
+    <div  class="portfolio-grid">
+      {#each projects as project}
+        <div class="box-wrapper">
+          <a href={`/portfolio/${project.url}`}>
+            <div class="box">
+              <div class="thumbnail-wrapper" style={project.wrapperStyle}>
+                <img src={project.src} alt={project.alt} class="thumbnail" style={project.imgStyle} />
+              </div>
+              <div class="description">{project.description}</div>
             </div>
-            <div class="description">{project.description}</div>
-          </div>
-        </a>
-      </div>
-    {/each}
-  </div>
+          </a>
+        </div>
+      {/each}
+    </div>
+  {/snippet}
 </Page>
 
 <style>

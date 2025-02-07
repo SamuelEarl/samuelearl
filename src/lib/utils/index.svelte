@@ -1,4 +1,4 @@
-<script context="module">
+<script module>
   import { browser } from "$app/environment";
 
   export let screenWidth = 0;

@@ -8,33 +8,33 @@
 /* You can add an "fp-spin" class (e.g. class="fp-spin") to an icon (or any other element) to make it spin. */
 /* Beginning of "fp-spin" class */
 .fp-spin {
-	animation: fp-spin 1.5s infinite linear;
+  animation: fp-spin 1.5s infinite linear;
 }
 
 @keyframes fp-spin {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
-	}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 /* End of "fp-spin" class */
 
 /* Beginning of "fp-animatetop class */
 .fp-animatetop {
-	animation: fp-animatetop 0.5s;
+  animation: fp-animatetop 0.5s;
 }
 
 /* Add Animation */
 @keyframes fp-animatetop {
-	from {
-		top: -300px;
-		opacity: 0;
-	}
-	to {
-		top: 0;
-		opacity: 1;
-	}
+  from {
+    top: -300px;
+    opacity: 0
+  }
+  to {
+    top: 0;
+    opacity: 1
+  }
 }
 /* End of "fp-animatetop class */

@@ -5,7 +5,7 @@
   import MainNav from "./MainNav.svelte";
   // import Photo from "/src/assets/images/profile-photo-gray-scale-round-200x200.png";
 
-  let showMobileMainNav = false;
+  let showMobileMainNav = $state(false);
 
   // On mobile clear the MainNav after a user navigates so it
   // is not still displaying after a user has clicked a link.

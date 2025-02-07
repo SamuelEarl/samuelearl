@@ -7,6 +7,7 @@ export { DatePicker, getISODate, isValidDate } from "./ui/DatePickers";
 export { DropZone } from "./ui/DropZones";
 export { CurrencyInput, Input } from "./ui/Inputs";
 export { Grid, Row, Col, FlexGrid, FlexRow, FlexCol } from "./ui/Grids";
+export { Highlight } from "./ui/SyntaxHighlighters";
 export { Label } from "./ui/Labels";
 export { Modal } from "./ui/Modals";
 export { RadioButton } from "./ui/RadioButtons";

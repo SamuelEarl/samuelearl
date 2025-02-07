@@ -3,51 +3,53 @@
 /* These form the base styles that can be modified in your .svelte files. */
 /* NOTE: I haven't been able to figure out how to get CSS nesting to work outside of Svelte components. */
 
-html,
-body {
-	font-family: var(--sans-serif);
-	font-size: var(--font-size-base);
-	color: var(--text-color-default);
-	font-weight: normal;
+/* body {
+  Hide horizontal scrollbar.
+  This style rule is used to compensate for the issue in the `Page.svelte` component.
+  overflow-x: hidden;
+} */
+
+html, body {
+  font-family: var(--sans-serif);
+  font-size: var(--font-size-xl);
+  color: var(--text-color-default);
+  font-weight: 400;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin-bottom: 15px;
-	font-family: var(--display);
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-family: var(--sans-serif);
+  font-weight: 900;
 }
 
 h1 {
-	font-size: var(--font-size-4xl);
+  margin-top: 0;
+  font-size: 2.5rem;
 }
 
 h2 {
-	font-size: var(--font-size-xxl);
+  font-size: 2rem;
 }
 
 h3 {
-	font-size: var(--font-size-xl);
-	color: var(--primary-color);
+  font-size: 1.5rem;
 }
 
 h4 {
-	font-size: var(--font-size-xl);
+  font-size: 1rem;
 }
 
 h5 {
-	font-size: var(--font-size-lg);
+  font-size: var(--font-size-lg);
 }
 
 h6 {
-	font-size: var(--font-size-base);
+  font-size: var(--font-size-base);
 }
 
 p {
-	margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 ul, ol {
@@ -58,67 +60,73 @@ ul, ol {
 }
 
 ul {
-	list-style-type: disc;
+  list-style-type: disc;
 }
 
 ol {
-	list-style-type: decimal;
+  list-style-type: decimal;
 }
 
 li {
-	margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 a {
-	color: var(--primary-color);
-	text-decoration-line: none;
-	border-bottom: 1px dotted var(--primary-color);
-	cursor: pointer;
+  color: var(--primary-color);
+  text-decoration-line: none;
+  border-bottom: 1px dotted var(--primary-color);
+  cursor: pointer;
 }
 
 a:hover {
-	border-bottom-color: transparent !important;
-}
-
-/* Many of the default button styles are removed or set in the preflight.css file,
-so there is no need to remove those default styles here. */
-button.clickable-text {
-	text-align: left;
-	border-bottom: 1px dotted var(--primary-color);
-}
-
-button.clickable-text:hover {
-  /* If the border-bottom-color is set in a component, then it won't change to 
-  transparent when a user hovers over it. But adding `!important` fixes that. */
-  border-bottom-color: transparent !important;
+  border-bottom: none;
 }
 
 br {
-	line-height: 0; /* Firefox adds a line-height to <br> tags, so this removes that. */
-	margin-bottom: 15px;
+  line-height: 0; /* Firefox adds a line-height to <br> tags, so this removes that. */
+  margin-bottom: 20px;
 }
 
 hr {
-	margin: 30px 0;
-	border: none;
-	border-top: var(--border-default);
+  margin: 30px 0;
+  border: none;
+  border-top: var(--border-default);
 }
 
 /* <pre> or triple backticks. The background color might have a conflict with the "prismjs" package, so I have added `!important`. */
 pre {
-	font-family: var(--monospace);
-	padding: 10px;
-	margin-bottom: 15px;
-	border-radius: var(--border-radius);
-	background-color: var(--bg-color-element-default) !important;
+  font-family: var(--monospace);
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: var(--border-radius);
+  background-color: var(--bg-color-element-default) !important;
+  overflow-x: auto;
 }
 
 /* <code> or single backticks. See the comment for the `pre` styles above. */
 code {
-	font-family: var(--monospace);
-	padding: 0 3px;
-	border-radius: var(--border-radius);
-	background-color: var(--bg-color-element-default) !important;
+  font-family: var(--monospace);
+  padding: 0 3px;
+  border-radius: var(--border-radius);
+  background-color: var(--bg-color-element-default) !important;
+  overflow-x: auto;
+}
+
+@media (min-width: 0px) {
+  aside {
+    padding: 10px;
+    background-color: var(--neutral-100);
+
+    & h2, h3, h4 {
+      margin-top: 0;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  aside {
+    padding: 20px;
+  }
 }
 
 /* --------------------------------------------------------------------- */
@@ -126,21 +134,22 @@ code {
 /* TODO: The following table styles should be used in a table component. */
 /* --------------------------------------------------------------------- */
 table {
-	width: 100%;
-	border-collapse: collapse;
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-collapse: collapse;
 }
 
 tr {
-	border-bottom: var(--border-default);
+  border-bottom: var(--border-default);
 }
 
 tbody tr:last-child {
-	border-bottom: none;
+  border-bottom: none;
 }
 
-th,
-td {
-	padding: 10px 25px;
-	text-align: left;
-	vertical-align: top;
+th, td {
+  padding: 10px 25px;
+  text-align: left;
+  vertical-align: top;
 }

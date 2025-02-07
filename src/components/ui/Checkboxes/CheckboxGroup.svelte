@@ -75,7 +75,7 @@
       * TODO: I need to add an `id` attribute to the checkbox elements (that does not conflict with the `id` attribute that is already here) and I need to add a `for` attribute on the <label> elements that uses the same value that is passed to the checkbox's `id` attribute. See the <Checkbox /> component for an example. 
       * NOTE: The <SelectMulti> component, which uses this <CheckboxGroup /> component, uses a componentId that is passed into this component. So I might need to recreate the <SelectMulti> component first (so it uses a accessible popup modal instead of the dropdown that it currently uses) and then I can come back to this component and fix the `id` and `for` attribute issue.
     -->
-    <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+    <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
     <label
       class="fp-checkbox-label-wrapper" 
       class:disabled
@@ -103,7 +103,7 @@
 
 {#if valuesDataType === "object"}
   {#each checkboxGroupValues as obj}
-    <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+    <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
     <label
       class="fp-checkbox-label-wrapper" 
       class:disabled

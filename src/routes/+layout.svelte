@@ -2,6 +2,11 @@
 	import Header from "./Header.svelte";
 	import Footer from "./Footer.svelte";
 	import "/src/assets/styles/main.css";
+  interface Props {
+    children?: import('svelte').Snippet;
+  }
+
+  let { children }: Props = $props();
 </script>
 
 <svelte:head>
@@ -13,7 +18,7 @@
 		<Header />
 	</div>
   <main>
-    <slot />
+    {@render children?.()}
   </main>
 	<div class="footer-wrapper">
 		<Footer />

@@ -9,13 +9,13 @@
   let email = "";
   let message = "";
   let disabled = false;
-  $: checkFormValidation = () => {
+  let checkFormValidation = $derived(() => {
     let isInvalid = true;
     if (name && subject && email && message) {
       isInvalid = false;
     }
     return isInvalid;
-  }
+  })
 </script>
 
 <svelte:head>

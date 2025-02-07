@@ -26,7 +26,7 @@
 </script>
 
 
-<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 <label
   for={id}
   class="fp-checkbox-label-wrapper" 

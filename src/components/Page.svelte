@@ -1,20 +1,27 @@
 <script lang="ts">
+  interface Props {
+    heading?: import('svelte').Snippet;
+    children?: import('svelte').Snippet;
+    bottom?: import('svelte').Snippet;
+  }
+
+  let { heading, children, bottom }: Props = $props();
 	
 </script>
 
 <div class="page">
-  {#if $$slots.heading}
+  {#if heading}
     <div class="heading-wrapper fp-container">
-      <slot name="heading" />
+      {@render heading?.()}
     </div>
   {/if}
   <div class="main-content-wrapper fp-container">
-    <slot />
+    {@render children?.()}
   </div>
-  {#if $$slots.bottom}
+  {#if bottom}
     <div class="bottom-content-outer">
       <div class="bottom-content-inner fp-container">
-        <slot name="bottom" />
+        {@render bottom?.()}
       </div>
     </div>
   {/if}
