@@ -38,7 +38,7 @@
   into and out of the DOM. So I am using a `display: none` style rule instead. 
 -->
 <!-- {#if screenWidth < 1024} -->
-  <nav class="mobile-nav" transition:fly|local>
+  <nav class="mobile-nav" transition:fly>
     <ul class="mobile-nav-menu">
       <!-- Display the mainNav. -->
       {#each mainNav as item}
