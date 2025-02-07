@@ -70,7 +70,6 @@ async def invoke_concurrently(data: list[dict[str, str]],
 
 
 current_inventory = await invoke_concurrently(products, get_current_inventory);
- 
 ```
 
 Note that if you pass a list of awaitables to ayncio.gather(), then you have to unpack the list with the star operator (*). Also, note that when the callback function is passed to the `invoke_concurrently()` function and when it is called in the `futures` list, it is not `await`ed. This allows the callback to return a pending future without waiting for it to resolve before the next callback is invoked.

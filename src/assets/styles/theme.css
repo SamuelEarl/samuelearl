@@ -31,19 +31,23 @@
   /* INSTRUCTIONS: You can change any of these values, but do not change the variable names. */
   --white: #ffffff;
   --black: #000000;
-  --transparent: transparent;
+  /* NOTE: Fanny Pack does not use a transparent variable, like this `--transparent: transparent;`, because that does not make sense. Some people might want their --white or --black variables to be just a little off of pure white or black, so it makes sense to have those variables. But transparent is transparent. There is no such thing as "off transparent". */
+
   /* These are shades and tints of #50404d (i.e. Purple Taupe). 
   See https://www.colorhexa.com/50404d. */
-  --neutral-50: #f9f8f9;
-  --neutral-100: #f1edf0;
-  --neutral-200: #e8e2e7;
-  --neutral-300: #d6ccd4;
-  --neutral-400: #bcacb9;
-  --neutral-500: #998095;
-  --neutral-600: #7c6377;
-  --neutral-700: #5b4957;
-  --neutral-800: #3a2f38;
-  --neutral-900: #1a1419;
+  --neutral-1: #f9f8f9;
+  --neutral-2: #e8e2e7;
+  --neutral-3: #d6ccd4;
+  --neutral-4: #c5b6c2;
+  --neutral-5: #b4a1b0;
+  --neutral-6: #a28b9e;
+  --neutral-7: #91758b;
+  --neutral-8: #7c6377;
+  --neutral-9: #665162;
+  --neutral-10: #50404d;
+  --neutral-11: #3a2f38;
+  --neutral-12: #241d23;
+  --neutral-13: #0f0c0e;
 }
 
 /* MAIN COLORS */
@@ -52,19 +56,25 @@
 :root {
   --primary-color: var(--dark-purple);
   --text-color-for-primary-bg: var(--white);
-  --secondary-color: var(--neutral-800);
+  --secondary-color: var(--neutral-11);
   --text-color-for-secondary-bg: var(--white);
   --tertiary-color: var(--white);
-  --text-color-for-tertiary-bg: var(--neutral-800);
+  --text-color-for-tertiary-bg: var(--neutral-11);
+
   /* Notification Colors */
   --info-color: var(--dark-blue);
   --text-color-for-info-bg: var(--white);
   --success-color: var(--dark-green);
   --text-color-for-success-bg: var(--white);
   --warning-color: var(--yellow);
-  --text-color-for-warning-bg: var(--neutral-900);
+  --text-color-for-warning-bg: var(--neutral-13);
   --error-color: var(--dark-red);
   --text-color-for-error-bg: var(--white);
+
+  /* Disabled States */
+  /* This is how to use this variable: filter: var(--disabled-filter); */
+  /* Multiple filters can be added. See https://www.w3schools.com/cssref/css3_pr_filter.php */
+  --disabled-filter: brightness(65%);
 }
 
 
@@ -84,12 +94,14 @@ These variables are organized in the same way that Tailwind organizes their util
 :root {
   /* Page background colors. */
   --bg-color-default: var(--white);
-  --bg-color-default-dark: var(--neutral-700);
+  --bg-color-default-dark: var(--neutral-12);
+
   /* Element background colors. */
-  --bg-color-element-default: var(--neutral-200);
-  --bg-color-element-disabled: var(--neutral-300);
+  --bg-color-element-default: var(--neutral-2);
+  --bg-color-element-disabled: var(--neutral-4);
+  
   /* Hover background color. */
-  --bg-color-hover: var(--neutral-200);
+  --bg-color-hover: var(--neutral-2);
 }
 
 
@@ -97,23 +109,23 @@ These variables are organized in the same way that Tailwind organizes their util
 :root {
   --border-width-default: 1px;
   --border-style-default: solid;
-  --border-color-default: var(--neutral-300);
+  --border-color-default: var(--neutral-4);
   --border-default: var(--border-width-default) var(--border-style-default) var(--border-color-default);
   --border-primary: var(--border-width-default) var(--border-style-default) var(--primary-color);
   --border-secondary: var(--border-width-default) var(--border-style-default) var(--secondary-color);
   --border-tertiary: var(--border-width-default) var(--border-style-default) var(--tertiary-color);
-  --border-color-disabled: var(--neutral-300);
+  --border-color-disabled: var(--neutral-4);
   --border-radius: 3px;
 }
 
 
 /* BOX SHADOW */
 :root {
-  --box-shadow-default: 0 0 0 1px var(--border-color-default);
-  --box-shadow-primary: 0 0 0 1px var(--primary-color);
-  --box-shadow-secondary: 0 0 0 1px var(--secondary-color);
-  --box-shadow-tertiary: 0 0 0 1px var(--tertiary-color);
-  --box-shadow-depth: 0px 3px 3px 3px rgba(0, 0, 0, 0.1);
+  --box-shadow-default: 0 0 0 2px var(--border-color-default);
+  --box-shadow-primary: 0 0 0 2px var(--primary-color);
+  --box-shadow-secondary: 0 0 0 2px var(--secondary-color);
+  --box-shadow-tertiary: 0 0 0 2px var(--tertiary-color);
+  --box-shadow-depth: 0 3px 5px 5px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -135,7 +147,7 @@ These variables are organized in the same way that Tailwind organizes their util
   like buttons, input fields, etc. or margins for elements.
 */
 :root {
-  --space-xs: 1px;
+  --space-xs: 0px;
   --space-sm: 5px;
   --space-md: 10px;
   --space-lg: 15px;  
@@ -146,11 +158,15 @@ These variables are organized in the same way that Tailwind organizes their util
 /* TYPOGRAPHY */
 :root {
   /* Font Families */
-  --sans-serif: "Proxima Nova", "sans-serif";
-  --serif: "Bitstream Charter", "serif";
-  --cursive: Audiowide, cursive;
-  --monospace: "Source Code Pro", "monospace";
+  /* --sans-serif: "Inter", sans-serif; */
+  /* --sans-serif: "Open Sans", sans-serif; */
+  --sans-serif: "Proxima Nova", sans-serif;
+	--serif: "Henny Penny", serif;
+  --display: "Cherry Cream Soda", sans-serif;
+	/* --cursive: Audiowide, cursive; */
+	--monospace: "Source Code Pro", "monospace";
 
+  /* TODO: These font-size variables are based on Tailwind's font sizes, but they seem random. The difference between one size and another is not consistent. These names don't mean anything to anyone. Maybe I should scrap these font-size variables and just keep the --font-size-base variable. All other font sizes can use rem sizing and will be based on the --font-size-base. That means that every 0.25rem increase is a 4px font-size increase, 0.5rem is an 8px increase, and 1rem is a 16px increase. That is easy to remember and work with. */
   /* Font Sizes */
   --font-size-xs: 12px;
   --font-size-sm: 14px;
@@ -182,9 +198,92 @@ These variables are organized in the same way that Tailwind organizes their util
   --line-height-9xl: 1px;
 
   /* Text Color */
-  --text-color-default: var(--neutral-700);
-  --text-color-disabled: var(--neutral-700);
+  --text-color-default: var(--neutral-11);
+  --text-color-disabled: var(--neutral-1);
 
   /* Placeholder Text Color */
-  --placeholder-color-default: var(--neutral-500);
+  --placeholder-color-default: var(--neutral-7);
+}
+
+/* ------------------------ */
+/* DEFAULT COMPONENT STYLES */
+/* ------------------------ */
+/* ACCORDIONS */
+:root {
+  --accordion-default-group-padding: var(--space-md);
+  --accordion-default-title-padding: var(--space-md);
+  --accordion-default-font-size: var(--font-size-base);
+  --accordion-default-space-between-accordions: var(--space-sm);
+}
+
+/* BUTTONS */
+:root {
+  --btn-default-bg-color: var(--primary-color);
+  --btn-default-border-color: var(--primary-color);
+  --btn-default-text-color: var(--white);
+  /* NOTE: Button components have a 2px border and other form elements have a 1px border. The following Button padding sizes are 1px smaller than the other padding sizes in this `theme.css` file to compensate for the 2px border that Button components have. */
+  --btn-padding-xs: 0px 3px;
+  --btn-padding-sm: 4px 8px;
+  --btn-padding-md: 9px 18px;
+  --btn-padding-lg: 14px 28px;
+  --btn-padding-xl: 19px 38px;
+  --btn-default-padding: var(--btn-padding-md);
+  --btn-default-font-size: var(--font-size-base);
+}
+
+/* CHECKBOXES */
+:root {
+  --checkbox-default-margin-bottom: var(--space-xl);
+  /* The `--checkbox-default-vertical-alignment` variable will set the checkbox higher or lower in relation to the label text. The font family and font size that you set in your app will affect where the checkboxes are aligned in relation to the label text of the checkboxes, so this variable might come in handy. */
+  --checkbox-default-vertical-alignment: 0px;
+}
+
+/* DATE PICKER */
+:root {
+  --date-picker-input-default-padding-v: var(--space-md);
+  --date-picker-input-default-padding-h: var(--space-md);
+  --date-picker-input-default-font-size: var(--font-size-base);
+  --date-picker-calendar-border-color: var(--secondary-color);
+  --date-picker-calendar-selected-date-bg-color: var(--secondary-color);
+  --date-picker-calendar-selected-date-text-color: var(--white);
+}
+
+/* LABELS */
+:root {
+  --label-default-font-size: "0.85rem";
+  --label-default-margin-bottom: var(--space-sm);
+}
+
+/* INPUTS */
+:root {
+  --input-default-padding: var(--space-md);
+  --input-default-font-size: var(--font-size-base);
+}
+
+/* RADIO BUTTONS */
+:root {
+  --radio-default-margin-bottom: var(--space-xl);
+  /* The `--radio-default-vertical-alignment` variable will set the radio button higher or lower in relation to the label text. The font family and font size that you set in your app will affect where the radio buttons are aligned in relation to the label text of the radio buttons, so this variable might come in handy. */
+  --radio-default-vertical-alignment: -1px;
+}
+
+/* SELECT BOXES */
+:root {
+  --select-default-padding: var(--space-md);
+  --select-default-font-size: var(--font-size-base);
+}
+
+/* TABS */
+:root {
+  --tabs-default-container-padding: var(--space-lg);
+  --tabs-default-tab-padding: var(--space-md);
+  --tabs-default-tab-font-size: var(--font-size-base);
+  --tabs-default-panel-padding: var(--space-xs);
+  --tabs-default-tab-bar-margin-bottom: var(--space-md);
+}
+
+/* TEXTAREA */
+:root {
+  --textarea-default-padding: var(--space-md);
+  --textarea-default-font-size: var(--font-size-base);
 }

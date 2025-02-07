@@ -1,7 +1,7 @@
 <script lang="ts">
   import Icon from "@iconify/svelte";
-  import { Button, Input, Textarea } from "@fanny-pack-ui/svelte-kit";
-  import Page from "../../components/Page.svelte";
+  import { Button, Input, Textarea } from "/src/components";
+  import Page from "/src/components/Page.svelte";
   import Bitmoji from "/src/assets/images/bitmojis/contact.png";
 
   let name = "";
