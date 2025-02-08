@@ -10,7 +10,7 @@ If you have a two or more asynchronous functions, whose results do NOT depend on
 
 Another option is if you have a set of data that you need to run through the same API endpoint. You can call that API endpoint multiple times concurrently, as in the following example.
 
-<Hightlight language="python">
+<!-- <Hightlight language="python">
 import asyncio
 import aiohttp
 
@@ -74,7 +74,7 @@ async def invoke_concurrently(data: list[dict[str, str]],
 
 
 current_inventory = await invoke_concurrently(products, get_current_inventory)
-</Hightlight>
+</Hightlight> -->
 
 ```py
 import asyncio
