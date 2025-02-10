@@ -1,17 +1,8 @@
-# Asynchronous Programming
+<script lang="ts">
+  import { Highlight } from "/src/components";
 
-This article from Real Python "[Getting Started With Async Features in Python](https://realpython.com/python-async-features/)" is a great resource to learn how asynchronous programming works in Python, but also gives some good insight into how asynchronous programming works in general. In particular, I really like the following section, which refers to the code sample below it:
-
-_The event loop is at the heart of the Python async system. It runs all the code, including `main()`. When task code is executing, the CPU is busy doing work. When the `await` keyword is reached, a context switch occurs, and control passes back to the event loop. The event loop looks at all the tasks waiting for an event (in this case, an `asyncio.sleep(delay)` timeout) and passes control to a task with an event that’s ready._
-
-_`await asyncio.sleep(delay)` is non-blocking in regards to the CPU. Instead of waiting for the delay to timeout, the CPU registers a sleep event on the event loop task queue and performs a context switch by passing control to the event loop. The event loop continuously looks for completed events and passes control back to the task waiting for that event. In this way, the CPU can stay busy if work is available, while the event loop monitors the events that will happen in the future._
-
-_Note: An asynchronous program runs in a single thread of execution. The context switch from one section of code to another that would affect data is completely in your control. This means you can atomize and complete all shared memory data access before making a context switch. This simplifies the shared memory problem inherent in threaded code._
-
-<br>
-
-```py
-import asyncio
+  const example1 =
+`import asyncio
 from codetiming import Timer
 
 async def task(name, work_queue):
@@ -42,10 +33,25 @@ async def main():
         )
 
 if __name__ == "__main__":
-    asyncio.run(main())
-```
+    asyncio.run(main())`;
+</script>
+
+# Asynchronous Programming
+
+This article from Real Python "[Getting Started With Async Features in Python](https://realpython.com/python-async-features/)" is a great resource to learn how asynchronous programming works in Python, but also gives some good insight into how asynchronous programming works in general. In particular, I really like the following section, which refers to the code sample below it:
+
+_The event loop is at the heart of the Python async system. It runs all the code, including `main()`. When task code is executing, the CPU is busy doing work. When the `await` keyword is reached, a context switch occurs, and control passes back to the event loop. The event loop looks at all the tasks waiting for an event (in this case, an `asyncio.sleep(delay)` timeout) and passes control to a task with an event that’s ready._
+
+_`await asyncio.sleep(delay)` is non-blocking in regards to the CPU. Instead of waiting for the delay to timeout, the CPU registers a sleep event on the event loop task queue and performs a context switch by passing control to the event loop. The event loop continuously looks for completed events and passes control back to the task waiting for that event. In this way, the CPU can stay busy if work is available, while the event loop monitors the events that will happen in the future._
+
+_Note: An asynchronous program runs in a single thread of execution. The context switch from one section of code to another that would affect data is completely in your control. This means you can atomize and complete all shared memory data access before making a context switch. This simplifies the shared memory problem inherent in threaded code._
 
 <br>
+
+<Highlight 
+  language="python"
+  code={example1}
+/>
 
 Those paragraphs about the event loop reminded me of an analogy that I read a while back about single-threaded, async code. (By the way, that is the type of code that you find in JavaScript. I wish I could remember where I read that analogy.) I remember the analogy going something like this:
 

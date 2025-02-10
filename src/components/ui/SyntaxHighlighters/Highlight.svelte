@@ -1,28 +1,40 @@
-<!-- @migration-task Error while migrating Svelte code: Identifier 'hljs' has already been declared
-https://svelte.dev/e/js_parse_error -->
 <script lang="ts">
-  import type { Snippet } from "svelte";
-  import hljs from "highlight.js/lib/core";
-  import typescript from "highlight.js/lib/languages/typescript";
-  import python from "highlight.js/lib/languages/python";
+  import SvelteHighlight, { LineNumbers } from "svelte-highlight";
+  import typescript from "svelte-highlight/languages/typescript";
+  import python from "svelte-highlight/languages/python";
+  import c from "svelte-highlight/languages/c";
+  import bash from "svelte-highlight/languages/bash";
+
+  import material from "svelte-highlight/styles/material";
 
   interface Props {
-    children: Snippet;
     language: string;
+    code: string;
+    lineNumbers: boolean;
   }
 
   let {
-    children, 
-    language
+    language,
+    code,
+    lineNumbers = true
   }: Props = $props();
 
-  hljs.registerLanguage("typescript", typescript);
-  hljs.registerLanguage("python", python);
-
-  const highlightedCode = hljs.highlight(
-    children,
-    { language: language }
-  ).value
+  let lang = typescript;
+  if (language === "python") lang = python;
+  else if (language === "c") lang = c;
+  else if (language === "bash") lang = bash;
 </script>
 
-{@render highlightedCode()}
+<svelte:head>
+  {@html material}
+</svelte:head>
+
+{#if lineNumbers}
+  <SvelteHighlight language={lang} {code} let:highlighted>
+    <LineNumbers {highlighted} />
+  </SvelteHighlight>
+{:else}
+  <SvelteHighlight language={lang} {code} />
+{/if}
+
+<br>

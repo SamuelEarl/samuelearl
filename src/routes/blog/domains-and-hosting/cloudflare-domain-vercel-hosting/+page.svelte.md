@@ -1,3 +1,12 @@
+<script lang="ts">
+  import { Highlight } from "/src/components";
+
+  const error = 
+`This site can't provide a secure connection
+www.app.mysite.com uses an unsupported protocol.
+ERR_SSL_VERSION_OR_CIPHER_MISMATCH`;
+</script>
+
 # How to Use a Cloudflare Domain with Vercel Hosting
 
 I like using Cloudflare in my web projects. This is in large part because they keep their costs down and they also have really great products. Whenever I register new domain names I will register them with Cloudflare, but I might use other web hosting providers, depending on the needs of my app.
@@ -6,11 +15,11 @@ I recently transferred a domain name from Namecheap to Cloudflare following this
 
 <br>
 
-```
-This site can't provide a secure connection
-www.app.mysite.com uses an unsupported protocol.
-ERR_SSL_VERSION_OR_CIPHER_MISMATCH
-```
+<Highlight 
+  language="bash"
+  code={error}
+  lineNumbers={false}
+/>
 
 <br>
 

@@ -1,12 +1,20 @@
+<script lang="ts">
+  import { Highlight } from "/src/components";
+
+  const code = "Add an A, AAAA, or CNAME record for www so that www.mysite.com will resolve.";
+</script>
+
 # How to Create a Redirect for `www` on Cloudflare
 
 When you host a site on Cloudflare it is a good idea to create a redirect from `www` to your main domain.
 
 If you don't have a `www` redirect in the Cloudflare DNS records, then you will see this alert: 
 
-```
-Add an A, AAAA, or CNAME record for www so that www.mysite.com will resolve.
-```
+<Highlight 
+  language="python"
+  code={code}
+  lineNumbers={false}
+/>
 
 This is how you do that.
 

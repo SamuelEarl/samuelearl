@@ -1,3 +1,72 @@
+<script lang="ts">
+  import { Highlight } from "/src/components";
+
+  const example1 =
+`// Browser: 
+// This will create a date object with local timezone.
+const localDateObj = new Date();
+
+// Node:
+// This will create a date object with UTC timezone and ISO format.
+const isoDateObj = new Date();
+
+// Browser & Node: 
+// This will create a date string with UTC timezone and ISO format.
+const isoDateString = new Date().toISOString();`;
+
+  const example2 =
+`const dateString = "2024-01-15";
+
+// Browser: 
+// This will create a date object with the specified 
+// date in the local timezone.
+const localDateObj = new Date(dateString);
+
+// Node: 
+// This will create a date object with the specified 
+// date in the UTC timezone and ISO format.
+const isoDateObj = new Date(dateString);
+
+// Browser & Node:
+// This will create a date string with the specified date in 
+// the UTC timezone and ISO format.
+const isoDateString = new Date(dateString).toISOString();
+
+// Note that the hours, minutes, seconds, and milliseconds will all be set to 0.`;
+
+  const example3 =
+`const today = new Date();
+
+// The getTime() method returns the number of milliseconds for this
+// date since midnight at the beginning of January 1, 1970, UTC.
+const timestamp = today.getTime();
+
+// Browser: 
+// This will create a date object with the specified 
+// timestamp in the local timezone.
+const localDateObj = new Date(timestamp);
+
+// Node: 
+// This will create a date object with the specified 
+// timestamp in the UTC timezone and ISO format.
+const dateObj = new Date(timestamp);`;
+
+  const example4 =
+`const today = new Date();
+
+// Set date to the first millisecond of the date.
+const morning = today.setUTCHours(0, 0, 0, 0);
+// Returns a timestamp like this: 1738972800000
+
+// Set date to the last millisecond of the date.
+const night = today.setUTCHours(23, 59, 59, 999);
+// Returns a timestamp like this: 1739059199999
+
+// Convert the timestamps to an ISO-formatted date string.
+new Date(morning).toISOString();
+new Date(night).toISOString();`;
+</script>
+
 # Working with Dates in JavaScript
 
 Working with dates can get confusing. Depending on the time of day or the timezone in which your browser or server are located or whether you are working in a browser or in a Node.js environment, you could see different dates and times in the Date objects. Why is that? This page is an attempt to demystify the JavaScript Date object and to provide some solutions to this confusing mess.
@@ -47,81 +116,30 @@ You can test these examples in a browser console or a Node REPL window (open a t
 
 In a browser the `new Date()` constructor will create a Date object that is evaluated to the local time zone. (See [Individual date and time component values](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date#individual_date_and_time_component_values) on the MDN `Date()` constructor page.) But in Node.js the `new Date()` constructor will create an ISO-formatted Date object with UTC time. So instead of creating a date with `new Date()`, you can do this:
 
-```
-// Browser: 
-// This will create a date object with local timezone.
-const localDateObj = new Date();
-
-// Node:
-// This will create a date object with UTC timezone and ISO format.
-const isoDateObj = new Date();
-
-// Browser & Node: 
-// This will create a date string with UTC timezone and ISO format.
-const isoDateString = new Date().toISOString();
-```
-
+<Highlight 
+  language="typescript"
+  code={example1}
+/>
 
 In Node.js this will create a Date object that uses the UTC time zone and that is in ISO format. The `new Date().toISOString()` method will return a string representing this date in ISO format and the timezone is always UTC, as denoted by the suffix `Z` ([Date.prototype.toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)). Passing an ISO formatted date string to the `new Date()` constructor is standardized and will work reliably. (See [Several ways to create a Date object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date#several_ways_to_create_a_date_object).)
 
 You can also use one of these options to create a Date string or Date object with a specific date:
 
-```
-const dateString = "2024-01-15";
+<Highlight 
+  language="typescript"
+  code={example2}
+/>
 
-// Browser: 
-// This will create a date object with the specified 
-// date in the local timezone.
-const localDateObj = new Date(dateString);
-
-// Node: 
-// This will create a date object with the specified 
-// date in the UTC timezone and ISO format.
-const isoDateObj = new Date(dateString);
-
-// Browser & Node:
-// This will create a date string with the specified date in 
-// the UTC timezone and ISO format.
-const isoDateString = new Date(dateString).toISOString();
-
-// Note that the hours, minutes, seconds, and milliseconds will all be set to 0.
-```
-
-```
-const today = new Date();
-
-// The `getTime()` method returns the number of milliseconds for this
-// date since midnight at the beginning of January 1, 1970, UTC.
-const timestamp = today.getTime();
-
-// Browser: 
-// This will create a date object with the specified 
-// timestamp in the local timezone.
-const localDateObj = new Date(timestamp);
-
-// Node: 
-// This will create a date object with the specified 
-// timestamp in the UTC timezone and ISO format.
-const dateObj = new Date(timestamp);
-```
-
+<Highlight 
+  language="typescript"
+  code={example3}
+/>
 
 ### Set the time of a Date object in UTC time
 
 Instead of using `setHours()` on a Date object, use the `setUTCHours()` method. This will work in browsers and Node.js. The `setUTCHours()` method will return a timestamp, but you can convert the timestamp into an ISO-formatted date string.
 
-```
-const today = new Date();
-
-// Set `date` to the first millisecond of the date.
-const morning = today.setUTCHours(0, 0, 0, 0);
-// Returns a timestamp like this: 1738972800000
-
-// Set `date` to the last millisecond of the date.
-const night = today.setUTCHours(23, 59, 59, 999);
-// Returns a timestamp like this: 1739059199999
-
-// Convert the timestamps to an ISO-formatted date string.
-new Date(morning).toISOString();
-new Date(night).toISOString();
-```
+<Highlight 
+  language="typescript"
+  code={example4}
+/>
