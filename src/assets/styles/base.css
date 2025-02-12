@@ -28,7 +28,7 @@ h1 {
 }
 
 @media (min-width: 0px) {
-  h1 {
+  h1, h1 code {
     font-size: 2rem;
   }
 
@@ -54,7 +54,7 @@ h1 {
 }
 
 @media (min-width: 768px) {
-  h1 {
+  h1, h1 code {
     font-size: 2.5rem;
   }
 
@@ -145,6 +145,14 @@ hr {
 
 pre, code {
   font-size: 0.8rem;
+}
+
+/* Style the <code> elements (i.e. the elements wrapped in ``) that are the children
+of various block elements, but that are not part of code examples). */
+p code, ol code, ul code {
+  padding: 0 3px;
+  border-radius: var(--border-radius);
+  background-color: var(--bg-color-element-default) !important;
 }
 
 @media (min-width: 0px) {

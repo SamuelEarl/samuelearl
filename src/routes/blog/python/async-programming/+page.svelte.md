@@ -26,7 +26,7 @@ async def main():
         await work_queue.put(work)
 
     # Run the tasks
-    with Timer(text="\nTotal elapsed time: {:.1f}"):
+    with Timer(text="Total elapsed time: {:.1f}"):
         await asyncio.gather(
             asyncio.create_task(task("One", work_queue)),
             asyncio.create_task(task("Two", work_queue)),
