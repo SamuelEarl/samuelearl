@@ -1,10 +1,3 @@
-<script lang="ts">
-  import { Highlight } from "/src/components";
-
-  const example1 =
-``;
-</script>
-
 # What are packages and the `__init__.py` file?
 
 A Python package usually consists of several code files. Physically, a package is a folder containing files and maybe other folders that themselves may contain more folders and files. Conceptually, it's a namespace. This simply means that a package's modules are bound together by a package name, by which they may be referenced.
@@ -13,10 +6,11 @@ Since a Python module is simply reusable, importable code, we can consider every
 
 Note that if you run a file as a standalone script, then any `__init__.py` files that are in the same package will NOT be executed. The `__init__.py` files are only executed when the package or a module within the package is imported into another file.
 
-_**Note:**_
-_Much of the Python documentation states that an `__init__.py` file must be present in the package directory when creating a package. This was once true. It used to be that the very presence of `__init__.py` signified to Python that a package was being defined. The file could contain initialization code or even be empty, but it had to be present._
+## Are `__init__.py` files required to create a package?
 
-_Starting with Python 3.3, Implicit Namespace Packages were introduced. These allow for the creation of a package without any `__init__.py` file. Of course, it can still be present if package initialization is needed. But it is no longer required. Check out [What's a Python Namespace Package, and What's It For?](https://realpython.com/python-namespace-package/) to learn more._
+Much of the Python documentation states that an `__init__.py` file must be present in the package directory when creating a package. This was once true. It used to be that the very presence of `__init__.py` signified to Python that a package was being defined. The file could contain initialization code or even be empty, but it had to be present.
+
+Starting with Python 3.3, [Implicit Namespace Packages](https://peps.python.org/pep-0420/) were introduced. These allow for the creation of a package without any `__init__.py` file. Of course, it can still be present if package initialization is needed. But it is no longer required. Check out [What's a Python Namespace Package, and What's It For?](https://realpython.com/python-namespace-package/) to learn more.
 
 ## Sources:
 
