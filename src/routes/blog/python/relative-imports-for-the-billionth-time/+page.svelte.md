@@ -8,6 +8,10 @@ I want to research all the answers in this SO post thoroughly and provide clear 
 
 This post will probably bring together the concepts from a few of my other posts.
 
+Research Resources:
+
+* [The Import System](https://docs.python.org/3/reference/import.html)
+
 Concepts that need clarification:
 
 * What is a Python package (see my other post)
