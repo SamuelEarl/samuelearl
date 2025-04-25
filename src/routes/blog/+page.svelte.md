@@ -13,6 +13,14 @@
       </ul>
     </div>
     <div class="topic">
+      <h2>data science, ml, ai</h2>
+      <ul>
+        <li><a href="/blog/data-science-ml-ai/a-6-step-guide-for-building-machine-learning-projects">A 6 Step Field Guide for Building Machine Learning Projects</a></li>
+        <li><a href="/blog/data-science-ml-ai/how-to-setup-data-science-projects">How To Setup Data Science Projects</a></li>
+        <li><a href="/blog/data-science-ml-ai/how-to-install-tensorflow-in-virtual-environment-with-anaconda">How To Install TensorFlow in a Virtual Environment with Anaconda</a></li>
+      </ul>
+    </div>
+    <div class="topic">
       <h2>domains &amp; hosting</h2>
       <ul>
         <li><a href="/blog/domains-and-hosting/cloudflare-domain-vercel-hosting">How to Use a Cloudflare Domain with Vercel Hosting</a></li>
@@ -28,6 +36,8 @@
     <div class="topic">
       <h2>graph databases</h2>
       <ul>
+        <!-- <li><a href="/blog/graph-databases/web-development-with-falkordb-graph-database">Coming Soon: Web Development with FalkorDB (graph database)</a></li> -->
+        <li>Coming Soon: Web Development with FalkorDB (graph database)</li>
         <li><a href="/blog/graph-databases/web-development-with-tigergraph">Web Development with TigerGraph</a></li>
         <!-- <li><a href="/blog/graph-databases/nebulagraph">NebulaGraph</a></li> -->
         <!-- <li><a href="/blog/graph-databases/amazon-neptune">Amazon Neptune</a></li> -->
