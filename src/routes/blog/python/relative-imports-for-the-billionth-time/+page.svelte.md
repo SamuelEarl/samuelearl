@@ -17,6 +17,6 @@ Concepts that need clarification:
 * What is a Python package (see my other post)
 * Installed packages vs local packages (is "local package" the correct term?)
 * Scripts vs Modules (see my other post)
-* What is `from __future__ import absolute_import`. Canit help in this situation?
+* What is `from __future__ import absolute_import`. Can it help in this situation?
 * The `__name__` dunder variable (see my other post)
 * Python interpreter vs Interactive Python interpreter. Is there a difference or did the authors of the some of the answers just use those terms interchangeably?
