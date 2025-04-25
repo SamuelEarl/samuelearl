@@ -4,9 +4,9 @@
 
 # How To Install TensorFlow in a Virtual Environment with Anaconda
 
-NOTE: Refer to the [How To Setup Data Science Projects](/blog/data-science-ml-ai/how-to-setup-data-science-projects) instructions for information on installing Anaconda, creating a virtual environment, and working with Python inside of VSCode (with or without Python Notebooks).
+NOTE: Refer to the [How To Setup Data Science Projects with Jupyter Notebooks or JupyterLab](/blog/data-science-ml-ai/how-to-setup-data-science-projects-with-jupyter-notebooks-or-jupyter-lab) instructions for information on installing Anaconda, creating a virtual environment, and working with Python inside of VSCode (with or without Python Notebooks).
 
-You can add TensorFlow to an `environment.yml` file and create a virtual environment that includes TensorFlow by following the instructions on [How To Setup Data Science Projects](/blog/data-science-ml-ai/how-to-setup-data-science-projects).
+You can add TensorFlow to an `environment.yml` file and create a virtual environment that includes TensorFlow by following the instructions on [How To Setup Data Science Projects with Jupyter Notebooks or JupyterLab](/blog/data-science-ml-ai/how-to-setup-data-science-projects-with-jupyter-notebooks-or-jupyter-lab).
 
 <Highlight 
   language="yaml"
