@@ -119,8 +119,8 @@ NOTE: Make sure that you have the Polyglot Notebooks extension installed in VS C
 3. If you get a message in VSCode that says, ".NET 9 SDK REQUIRED", then click the "Install here" link that follows the message and follow the instructions.
 4. Activate Your Virtual Environment: 
     1. In the top left corner of the notebook file you will see a button for `Select Kernel`. (NOTE: That button looks more like a label than a button.)
-    2. Click that button >> `Python Environments...` >> Select the virtual environment that you created previously. 
-    3. You should now see that `Select Kernel` has been replaced by the virtual environment that you selected.
+    2. Click that button >> `Python Environments...` >> Look for the name of the virtual environment that you created previously and select it. 
+    3. You should now see that `Select Kernel` has been replaced by the name of the virtual environment that you selected.
 
 ### Step 4.b. (Alternative): Use JupyterLab inside your virtual environment
 
