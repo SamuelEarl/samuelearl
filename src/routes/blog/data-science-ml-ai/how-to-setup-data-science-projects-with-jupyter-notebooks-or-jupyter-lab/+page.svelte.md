@@ -2,7 +2,7 @@
   import { Highlight } from "/src/components";
 </script>
 
-# How To Setup Data Science Projects
+# How To Setup Data Science Projects with Jupyter Notebooks or JupyterLab
 
 ## Install Anaconda3
 
