@@ -6,18 +6,18 @@
 
 These are shortcuts that you can use with VSCode. Most of these notes are taken from "Python Data Science Handbook" and converted to VSCode.
 
-## Explore Objects, Modules, and Namespaces with `Ctrl` + `Space`
+## Explore Objects, Modules, and Namespaces with `Ctrl`+`Space`
 
-You can use the Tab key for autocompletion and exploration of the contents of objects, modules, and namespaces.
+You can use `Ctrl`+`Space` for autocompletion and exploration of the contents of objects, modules, and namespaces.
 
-Every Python object has various attributes and methods associated with it. For example, to see a list of all available attributes of an object, you can type the name of the object followed by a period (`.`) character and press `Ctrl` + `Space`.
+Every Python object has various attributes and methods associated with it. For example, to see a list of all available attributes of an object, you can type the name of the object followed by a period (`.`) character and press `Ctrl`+`Space`.
 
 Example: 
 
 <Highlight 
   language="python"
   code={`new_list = [1, 2, 3]
-new_list.<press Ctrl + Space>`}
+new_list.<press Ctrl+Space>`}
 />
 
 You can also narrow down the list by typing the first character or several characters of the name, and VSCode will filter the matching attributes and methods.
@@ -28,34 +28,36 @@ You can also narrow down the list by typing the first character or several chara
 new_list.c  # VSCode will display a filtered list of matching attributes and methods in a dropdown.`}
 />
 
-## Using `Ctrl` + `Space` with imports
+## Using `Ctrl`+`Space` with imports
 
-`Ctrl` + `Space` is also useful when importing objects from packages. Here we’ll use it to find all possible imports in the `itertools` package that start with `co`:
+`Ctrl`+`Space` is also useful when importing objects from packages.
 
 <Highlight 
   language="python"
-  code={`from itertools import <press Ctrl + Space>`}
+  code={`from itertools import <press Ctrl+Space>`}
 />
 
-If that does not work, then type the first letter of an object that you want to import and then when you press `Ctrl` + `Space` it should show all the matching objects. You can then delete the first letter and you should see all the available objects that can be imported:
+If that does not work, then type the first letter of an object that you want to import and then when you press `Ctrl`+`Space` it should show all the matching objects. You can then delete the first letter and you should see all the available objects that can be imported.
+
+You can type `c`, for example, to find all possible imports in the `itertools` package that start with `c`:
 
 <Highlight 
   language="python"
-  code={`from itertools import c<press Ctrl + Space>`}
+  code={`from itertools import c<press Ctrl+Space>`}
 />
 
-Similarly, you can use tab-completion to see which imports are available on your system (this will change depending on which third-party scripts and modules are visible to your Python session):
+Similarly, you can use `Ctrl`+`Space` to see which imports are available on your system (this will change depending on which third-party scripts and modules are visible to your Python session):
 
 <Highlight 
   language="python"
-  code={`import <press Ctrl + Space>`}
+  code={`import <press Ctrl+Space>`}
 />
 
 Or filter by the first letter:
 
 <Highlight 
   language="python"
-  code={`import h<press Ctrl + Space>`}
+  code={`import h<press Ctrl+Space>`}
 />
 
 ## Access documentation with ?
@@ -70,4 +72,6 @@ Example: `my_function??`
 
 ## Issue command line commands with !
 
-You may not need to use the `ls` command too often since VSCode has a built-in File Explorer, but this is how you would run the `ls` command, for example, in VSCode: Enter `!ls` and run the cell.
+This is how you would run the `ls` command, for example, in VSCode: Enter `!ls` and run the cell.
+
+You may not need to use the `ls` command too often since VSCode has a built-in File Explorer, but that is a simple command line example.
