@@ -18,6 +18,7 @@
         <li><a href="/blog/data-science-ml-ai/a-6-step-guide-for-building-machine-learning-projects">A 6 Step Field Guide for Building Machine Learning Projects</a></li>
         <li><a href="/blog/data-science-ml-ai/how-to-setup-data-science-projects-with-jupyter-notebooks-or-jupyter-lab">How To Setup Data Science Projects with Jupyter Notebooks or JupyterLab</a></li>
         <li><a href="/blog/data-science-ml-ai/how-to-install-tensorflow-in-virtual-environment-with-anaconda">How To Install TensorFlow in a Virtual Environment with Anaconda</a></li>
+        <li><a href="/blog/data-science-ml-ai/vscode-shortcut-tips">VSCode Shortcut Tips</a></li>
       </ul>
     </div>
     <div class="topic">
