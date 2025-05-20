@@ -76,6 +76,12 @@
         <li><a href="/blog/technical-interviews/good-bad-ugly">The Good, The Bad & The Ugly</a></li>
       </ul>
     </div>
+    <div class="topic">
+      <h2>terminal</h2>
+      <ul>
+        <li><a href="/blog/terminal/how-to-customize-your-terminal-prompt">How To Customize Your Terminal Prompt</a></li>
+      </ul>
+    </div>
   </div>
 </div>
 

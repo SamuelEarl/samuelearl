@@ -5,6 +5,7 @@
   import c from "svelte-highlight/languages/c";
   import bash from "svelte-highlight/languages/bash";
   import yaml from "svelte-highlight/languages/yaml";
+  import json from "svelte-highlight/languages/json";
 
   import material from "svelte-highlight/styles/material";
 
@@ -25,6 +26,7 @@
   else if (language === "c") lang = c;
   else if (language === "bash") lang = bash;
   else if (language === "yaml") lang = yaml;
+  else if (language === "json") lang = json;
 </script>
 
 <svelte:head>
