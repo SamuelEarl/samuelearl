@@ -44,6 +44,41 @@ const results = await Promise.all([usersPromise, productsPromise, pricesPromise]
   });
 
 console.log(results);`;
+
+  const example3 =
+`async function invokeConcurrently(iterable, callback) {
+  const promises = iterable.map(element => {
+    const callbackResponse = callback(element);
+    return callbackResponse;
+  });
+
+  const results = await Promise.all(promises)
+    .catch(error => {
+      throw new Error(error.message);
+    });
+
+  return results;
+}
+
+await invokeConcurrently(arrayWithUserData, mlPipelineFunction);`;
+
+  const example4 =
+`async function invokeConcurrently(iterable, callback) {
+  const promises = [];
+  for await (const element of iterable) {
+    const callbackResponse = callback(element);
+    promises.push(callbackResponse);
+  }
+
+  const results = await Promise.all(promises)
+    .catch(error => {
+      throw new Error(error.message);
+    });
+
+  return results;
+}
+
+await invokeConcurrently(cursorWithProductData, mlPipelineFunction);`;
 </script>
 
 # Invoke APIs Concurrently with Promise.all()
@@ -67,6 +102,22 @@ There are a few different ways you can write concurrently executing code like th
 />
 
 Notice again that the calls to the async functions are not `await`ed, so the responses of those calls are pending promises.
+
+Here are a couple of other examples. 
+
+These `invokeConcurrently()` functions take an iterable (e.g. an array) and a callback function as inputs. These functions will loop over each element in the iterable, invoke the callback, and push the callback response (which will be a pending promise) to the `promises` array. Each promise in the `promises` array will resolve asynchronously in the `Promise.all()` method.
+
+<Highlight 
+  language="typescript"
+  code={example3}
+/>
+
+The difference with this last example is that it can also handle iterables like database cursors, where each element in the iterable (i.e. each result in the cursor) needs to be awaited before it can be processed. (This example was used to process a MongoDB cursor.)
+
+<Highlight 
+  language="typescript"
+  code={example4}
+/>
 
 ## Resources
 
